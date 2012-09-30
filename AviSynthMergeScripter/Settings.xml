@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<AviSynthMergeScripterSettings>
+  <LoadPluginString value="LoadPlugin(&quot;C:\Program Files (x86)\AviSynth 2.5\plugins\ffms2.dll&quot;)" />
+  <LoadPluginString value="LoadPlugin(&quot;C:\Program Files (x86)\AviSynth 2.5\plugins64\ffms2-x64.dll&quot;)" default="true" />
+  <SearchPattern value="*.avi" default="true" />
+  <ScriptFileNamePrefix value="" default="true" />
+  <ScriptFileExtension value="avs" default="true" />
+  <CompressRatio value="1" />
+  <CompressRatio value="24" />
+  <CompressRatio value="60" default="true" />
+  <CompressRatio value="720" />
+  <CompressRatio value="1440" />
+  <CompressRatio value="3600" />
+  <CompressRatio value="43200" />
+  <CompressRatio value="86400" />
+  <TargetFPS value="5" />
+  <TargetFPS value="25" />
+  <TargetFPS value="50" />
+  <TargetFPS value="100" default="true" />
+</AviSynthMergeScripterSettings>
