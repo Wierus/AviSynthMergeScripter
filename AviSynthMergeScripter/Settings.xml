@@ -1,20 +1,55 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <AviSynthMergeScripterSettings>
-  <LoadPluginString value="LoadPlugin(&quot;C:\Program Files (x86)\AviSynth 2.5\plugins\ffms2.dll&quot;)" />
-  <LoadPluginString value="LoadPlugin(&quot;C:\Program Files (x86)\AviSynth 2.5\plugins64\ffms2-x64.dll&quot;)" default="true" />
-  <SearchPattern value="*.avi" default="true" />
-  <ScriptFileNamePrefix value="" default="true" />
-  <ScriptFileExtension value="avs" default="true" />
-  <CompressRatio value="1" />
-  <CompressRatio value="24" />
-  <CompressRatio value="60" default="true" />
-  <CompressRatio value="720" />
-  <CompressRatio value="1440" />
-  <CompressRatio value="3600" />
-  <CompressRatio value="43200" />
-  <CompressRatio value="86400" />
-  <TargetFPS value="5" />
-  <TargetFPS value="25" />
-  <TargetFPS value="50" />
-  <TargetFPS value="100" default="true" />
+  <AviSynthSettings>
+    <ShowFiles value="true" />
+    <ShowFiles value="false" default="true" />
+    <SearchPattern value="*.avi" default="true" />
+    <SearchPattern value="*.avs" />
+    <LoadingPlugin value="C:\Program Files (x86)\AviSynth 2.5\plugins\ffms2.dll" />
+    <LoadingPlugin value="C:\Program Files (x86)\AviSynth 2.5\plugins64\ffms2-x64.dll" default="true" />
+    <CompressRatio value="1" displayValue="1 (оригинал)" />
+    <CompressRatio value="24" displayValue="24 (сутки за час)" />
+    <CompressRatio value="60" displayValue="60 (минута за секунду)" default="true" />
+    <CompressRatio value="60" displayValue="60 (час за минуту)" />
+    <CompressRatio value="720" displayValue="30 * 24  (месяц за час)" />
+    <CompressRatio value="1440" displayValue="24 * 60 (сутки за минуту)" />
+    <CompressRatio value="3600" displayValue="60 * 60 (час за секунду)" />
+    <CompressRatio value="8640" displayValue="12 * 30 * 24 (год за час)" />
+    <CompressRatio value="43200" displayValue="30 * 24 * 60 (месяц за минуту)" />
+    <CompressRatio value="86400" displayValue="24 * 60 * 60 (сутки за секунду)" />
+    <CompressRatio value="518 400" displayValue="12 * 30 * 24 * 60 (год за минуту)" />
+    <CompressRatio value="2 592 000" displayValue="30 * 24 * 60 * 60 (месяц за секунду)" />
+    <CompressRatio value="31 104 000" displayValue="12 * 30 * 24 * 60 * 60 (год за секунду)" />
+    <OutputFPS value="5" />
+    <OutputFPS value="25" default="true" />
+    <OutputFPS value="50" />
+    <OutputFPS value="100" />
+  </AviSynthSettings>
+  <X264CodecSettings>
+    <ShowFiles value="true" default="true" />
+    <ShowFiles value="false" />
+    <SearchPattern value="*.avi" />
+    <SearchPattern value="*.avs" default="true" />
+    <CodecPath value="C:\Program Files (x86)\x264\x264-rev2230-x86.exe" />
+    <CodecPath value="C:\Program Files (x86)\x264\x264-rev2230-x64.exe" default="true" />
+    <CodecPath value="D:\Programs\x264\x264.exe" default="true" />
+    <CodecOptions value="" default="true" />
+    <CodecOptions value="--preset veryslow" />
+    <CodecOptions value="--tune film" />
+    <CodecOptions value="--tune animation" />
+    <CodecOptions value="--tune grain" />
+    <CodecOptions value="--tune stillimage" />
+    <CodecOptions value="--tune psnr" />
+    <CodecOptions value="--tune ssim" />
+    <CodecOptions value="--preset veryslow --tune film" />
+    <CodecOptions value="--preset veryslow --tune animation" />
+    <CodecOptions value="--preset veryslow --tune grain" />
+    <CodecOptions value="--preset veryslow --tune stillimage" />
+    <CodecOptions value="--preset veryslow --tune psnr" />
+    <CodecOptions value="--preset veryslow --tune ssim" />
+    <OutputFileExtension value="264" displayValue=".264 (Raw bytestream)" />
+    <OutputFileExtension value="mkv" displayValue=".mkv (Matroska)" />
+    <OutputFileExtension value="flv" displayValue=".flv (Flash Video)" />
+    <OutputFileExtension value="mp4" displayValue=".mp4 (MP4 if compiled with GPAC support)" default="true" />
+  </X264CodecSettings>
 </AviSynthMergeScripterSettings>
