@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-
-namespace AviSynthMergeScripter {
+﻿namespace AviSynthMergeScripter {
 
     /// <summary>
     /// Режим работы программы.
@@ -19,6 +14,11 @@ namespace AviSynthMergeScripter {
         /// Режим кодирования x264.
         /// </summary>
         X264Codec,
+
+        /// <summary>
+        /// Режим чтения и сохранения свойств видеофайлов.
+        /// </summary>
+        VideoFilePropertiesReader,
 
         /// <summary>
         /// Не указанный режим работы.

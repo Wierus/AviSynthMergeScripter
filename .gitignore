@@ -1,0 +1,13 @@
+obj/
+
+*.csproj.user
+*.exe.config
+*.pdb
+*.suo
+*.vshost.exe
+*.vshost.exe.manifest
+
+*.avi
+*.avs
+*.ffindex
+*.mp4

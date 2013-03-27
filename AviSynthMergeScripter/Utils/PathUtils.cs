@@ -99,6 +99,21 @@ namespace AviSynthMergeScripter.Utils {
             return GetPathWithoutTrailingSlash(path);
         }
 
+        /// <summary>
+        /// Извлечение расширения файла или папки из пути (извлечение части пути после последней точки).
+        /// </summary>
+        /// <param name="path">Обрабатываемый путь.</param>
+        /// <returns>Расширение файла или папки (без точки). null, если в пути отсутствует расширение (отсутствует точка).</returns>
+        public static string GetExtension(string path) {
+            int indexOfDot = path.LastIndexOf('.');
+            if (indexOfDot != -1) {
+                return path.Substring(indexOfDot + 1, path.Length - indexOfDot - 1);
+            }
+            else {
+                return null;
+            }
+        }
+
     }
 
 }

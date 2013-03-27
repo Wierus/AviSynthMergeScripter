@@ -1,10 +1,10 @@
 ﻿namespace AviSynthMergeScripter.Scripting {
 
     /// <summary>
-    /// Настройки для кодека x264.
+    /// Настройки для сохранения свойств видеофайлов.
     /// </summary>
-    public class X264CodecSettings {
-        
+    public class VideoFilePropertiesReaderSettings {
+
         /// <summary>
         /// Флаг, указывающий, требуется ли отображать обрабатываемые файлы при построении дерева (на форме).
         /// </summary>
@@ -16,24 +16,14 @@
         private string searchPattern;
 
         /// <summary>
-        /// Путь к кодеку.
+        /// Путь к программе чтения свойств видеофайлов.
         /// </summary>
-        private string codecPath;
+        private string readerPath;
 
         /// <summary>
-        /// Режим использования стандартных потоков кодека для логирования.
+        /// Режим использования стандартных потоков программы чтения.
         /// </summary>
         private StandardStreamsUseMode standardStreamsUseMode;
-
-        /// <summary>
-        /// Параметры командной строки кодека.
-        /// </summary>
-        private string codecOptions;
-
-        /// <summary>
-        /// Расширение выходного файла.
-        /// </summary>
-        private string outputFileExtension;
 
         /// <summary>
         /// Флаг, указывающий, требуется ли отображать обрабатываемые файлы при построении дерева (на форме).
@@ -60,19 +50,19 @@
         }
 
         /// <summary>
-        /// Путь к кодеку.
+        /// Путь к программе чтения свойств видеофайлов.
         /// </summary>
-        public string CodecPath {
+        public string ReaderPath {
             get {
-                return this.codecPath;
+                return this.readerPath;
             }
             set {
-                this.codecPath = value;
+                this.readerPath = value;
             }
         }
 
         /// <summary>
-        /// Режим использования стандартных потоков кодека для логирования.
+        /// Режим использования стандартных потоков программы чтения.
         /// </summary>
         public StandardStreamsUseMode StandardStreamsUseMode {
             get {
@@ -83,31 +73,7 @@
             }
         }
 
-        /// <summary>
-        /// Параметры командной строки кодека.
-        /// </summary>
-        public string CodecOptions {
-            get {
-                return this.codecOptions;
-            }
-            set {
-                this.codecOptions = value;
-            }
-        }
-
-        /// <summary>
-        /// Расширение выходного файла.
-        /// </summary>
-        public string OutputFileExtension {
-            get {
-                return this.outputFileExtension;
-            }
-            set {
-                this.outputFileExtension = value;
-            }
-        }
-
-        public X264CodecSettings() {
+        public VideoFilePropertiesReaderSettings() {
         }
 
     }

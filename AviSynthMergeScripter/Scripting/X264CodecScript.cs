@@ -114,6 +114,7 @@ namespace AviSynthMergeScripter.Scripting {
             Process process = new Process();
             process.StartInfo = new ProcessStartInfo(this.settings.CodecPath, arguments);
             process.StartInfo.UseShellExecute = false;
+            process.StartInfo.CreateNoWindow = false;
             process.StartInfo.RedirectStandardOutput = true;
             process.StartInfo.RedirectStandardError = true;
             process.EnableRaisingEvents = true;

@@ -21,6 +21,9 @@ namespace AviSynthMergeScripter.Utils {
         /// <param name="searchPattern">Шаблон для поиска файлов.</param>
         public static void LoadFolderToTreeView(TreeView treeView, string inputFolderPath, bool loadFiles, string searchPattern) {
             treeView.Nodes.Clear();
+            if (inputFolderPath == null) {
+                throw new ArgumentNullException("Путь не указан.", new Exception());
+            }
             if (!PathUtils.IsValidPath(inputFolderPath)) {
                 throw new FormatException("Некорректный формат пути.");
             }

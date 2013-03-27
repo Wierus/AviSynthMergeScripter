@@ -4,7 +4,6 @@
     <ShowFiles value="true" />
     <ShowFiles value="false" default="true" />
     <SearchPattern value="*.avi" default="true" />
-    <SearchPattern value="*.avs" />
     <LoadingPlugin value="C:\Program Files (x86)\AviSynth 2.5\plugins\ffms2.dll" />
     <LoadingPlugin value="C:\Program Files (x86)\AviSynth 2.5\plugins64\ffms2-x64.dll" default="true" />
     <CompressRatio value="1" displayValue="1 (оригинал)" />
@@ -33,6 +32,10 @@
     <CodecPath value="C:\Program Files (x86)\x264\x264-rev2230-x86.exe" />
     <CodecPath value="C:\Program Files (x86)\x264\x264-rev2230-x64.exe" default="true" />
     <CodecPath value="D:\Programs\x264\x264.exe" default="true" />
+    <StandardStreamsUseMode value="UseOnlyStandardOutput" displayValue="Поток вывода" />
+    <StandardStreamsUseMode value="UseOnlyStandardError" displayValue="Поток ошибок" />
+    <StandardStreamsUseMode value="UseBothStandardOutputAndStandardError" displayValue="Оба потока" default="true" />
+    <StandardStreamsUseMode value="UseNothing" displayValue="Ничего" />
     <CodecOptions value="" default="true" />
     <CodecOptions value="--preset veryslow" />
     <CodecOptions value="--tune film" />
@@ -52,4 +55,14 @@
     <OutputFileExtension value="flv" displayValue=".flv (Flash Video)" />
     <OutputFileExtension value="mp4" displayValue=".mp4 (MP4 if compiled with GPAC support)" default="true" />
   </X264CodecSettings>
+  <VideoFilePropertiesReaderSettings>
+    <ShowFiles value="true" default="true" />
+    <ShowFiles value="false" />
+    <SearchPattern value="*.avi" />
+    <SearchPattern value="*.mp4" default="true" />
+    <SearchPattern value="*.rar" />
+    <ReaderPath value="D:\Downloads\MediaInfo_CLI_0.7.61_Windows_x64\MediaInfo.exe" default="true" />
+    <StandardStreamsUseMode value="UseOnlyStandardOutput" displayValue="Поток вывода" default="true" />
+    <StandardStreamsUseMode value="UseOnlyStandardError" displayValue="Поток ошибок" />
+  </VideoFilePropertiesReaderSettings>
 </AviSynthMergeScripterSettings>
