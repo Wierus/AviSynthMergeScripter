@@ -207,6 +207,7 @@
             // aviSynthSettingsShowFilesComboBox
             // 
             this.aviSynthSettingsShowFilesComboBox.DisplayMember = "DisplayMember";
+            this.aviSynthSettingsShowFilesComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.aviSynthSettingsShowFilesComboBox.IntegralHeight = false;
             this.aviSynthSettingsShowFilesComboBox.ItemHeight = 13;
             this.aviSynthSettingsShowFilesComboBox.Location = new System.Drawing.Point(168, 19);
@@ -228,6 +229,7 @@
             // aviSynthSettingsSearchPatternСomboBox
             // 
             this.aviSynthSettingsSearchPatternСomboBox.DisplayMember = "DisplayMember";
+            this.aviSynthSettingsSearchPatternСomboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.aviSynthSettingsSearchPatternСomboBox.IntegralHeight = false;
             this.aviSynthSettingsSearchPatternСomboBox.ItemHeight = 13;
             this.aviSynthSettingsSearchPatternСomboBox.Location = new System.Drawing.Point(393, 19);
@@ -446,6 +448,7 @@
             // x264CodecSettingsShowFilesComboBox
             // 
             this.x264CodecSettingsShowFilesComboBox.DisplayMember = "DisplayMember";
+            this.x264CodecSettingsShowFilesComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.x264CodecSettingsShowFilesComboBox.IntegralHeight = false;
             this.x264CodecSettingsShowFilesComboBox.ItemHeight = 13;
             this.x264CodecSettingsShowFilesComboBox.Location = new System.Drawing.Point(168, 19);
@@ -467,6 +470,7 @@
             // x264CodecSettingsSearchPatternComboBox
             // 
             this.x264CodecSettingsSearchPatternComboBox.DisplayMember = "DisplayMember";
+            this.x264CodecSettingsSearchPatternComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.x264CodecSettingsSearchPatternComboBox.IntegralHeight = false;
             this.x264CodecSettingsSearchPatternComboBox.ItemHeight = 13;
             this.x264CodecSettingsSearchPatternComboBox.Location = new System.Drawing.Point(393, 19);
