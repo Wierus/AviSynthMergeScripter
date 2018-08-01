@@ -261,6 +261,7 @@
             this.aviSynthSettingsLoadingPluginComboBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.aviSynthSettingsLoadingPluginComboBox.DisplayMember = "DisplayMember";
+            this.aviSynthSettingsLoadingPluginComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.aviSynthSettingsLoadingPluginComboBox.IntegralHeight = false;
             this.aviSynthSettingsLoadingPluginComboBox.ItemHeight = 13;
             this.aviSynthSettingsLoadingPluginComboBox.Location = new System.Drawing.Point(168, 46);
@@ -284,6 +285,7 @@
             this.aviSynthSettingsCompressRatioComboBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.aviSynthSettingsCompressRatioComboBox.DisplayMember = "DisplayMember";
+            this.aviSynthSettingsCompressRatioComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.aviSynthSettingsCompressRatioComboBox.IntegralHeight = false;
             this.aviSynthSettingsCompressRatioComboBox.ItemHeight = 13;
             this.aviSynthSettingsCompressRatioComboBox.Location = new System.Drawing.Point(168, 73);
@@ -307,6 +309,7 @@
             this.aviSynthSettingsOutputFPSComboBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.aviSynthSettingsOutputFPSComboBox.DisplayMember = "DisplayMember";
+            this.aviSynthSettingsOutputFPSComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.aviSynthSettingsOutputFPSComboBox.IntegralHeight = false;
             this.aviSynthSettingsOutputFPSComboBox.ItemHeight = 13;
             this.aviSynthSettingsOutputFPSComboBox.Location = new System.Drawing.Point(168, 100);
@@ -330,6 +333,7 @@
             this.aviSynthSettingsSourceReplaceTextComboBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.aviSynthSettingsSourceReplaceTextComboBox.DisplayMember = "DisplayMember";
+            this.aviSynthSettingsSourceReplaceTextComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.aviSynthSettingsSourceReplaceTextComboBox.IntegralHeight = false;
             this.aviSynthSettingsSourceReplaceTextComboBox.ItemHeight = 13;
             this.aviSynthSettingsSourceReplaceTextComboBox.Location = new System.Drawing.Point(168, 127);
@@ -353,6 +357,7 @@
             this.aviSynthSettingsTargetReplaceTextComboBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.aviSynthSettingsTargetReplaceTextComboBox.DisplayMember = "DisplayMember";
+            this.aviSynthSettingsTargetReplaceTextComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.aviSynthSettingsTargetReplaceTextComboBox.IntegralHeight = false;
             this.aviSynthSettingsTargetReplaceTextComboBox.ItemHeight = 13;
             this.aviSynthSettingsTargetReplaceTextComboBox.Location = new System.Drawing.Point(168, 154);
@@ -495,6 +500,7 @@
             this.x264CodecSettingsCodecPathComboBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.x264CodecSettingsCodecPathComboBox.DisplayMember = "DisplayMember";
+            this.x264CodecSettingsCodecPathComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.x264CodecSettingsCodecPathComboBox.IntegralHeight = false;
             this.x264CodecSettingsCodecPathComboBox.ItemHeight = 13;
             this.x264CodecSettingsCodecPathComboBox.Location = new System.Drawing.Point(168, 46);
@@ -518,6 +524,7 @@
             this.x264CodecSettingsCodecOptionsComboBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.x264CodecSettingsCodecOptionsComboBox.DisplayMember = "DisplayMember";
+            this.x264CodecSettingsCodecOptionsComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.x264CodecSettingsCodecOptionsComboBox.IntegralHeight = false;
             this.x264CodecSettingsCodecOptionsComboBox.ItemHeight = 13;
             this.x264CodecSettingsCodecOptionsComboBox.Location = new System.Drawing.Point(168, 73);
@@ -541,6 +548,7 @@
             this.x264CodecSettingsOutputFileExtensionComboBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.x264CodecSettingsOutputFileExtensionComboBox.DisplayMember = "DisplayMember";
+            this.x264CodecSettingsOutputFileExtensionComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.x264CodecSettingsOutputFileExtensionComboBox.IntegralHeight = false;
             this.x264CodecSettingsOutputFileExtensionComboBox.ItemHeight = 13;
             this.x264CodecSettingsOutputFileExtensionComboBox.Location = new System.Drawing.Point(168, 100);
