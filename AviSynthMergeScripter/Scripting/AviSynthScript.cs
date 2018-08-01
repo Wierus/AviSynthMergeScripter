@@ -78,10 +78,15 @@ namespace AviSynthMergeScripter.Scripting {
             writer.WriteLine("R = {0}", this.settings.CompressRatio);
             writer.WriteLine("FPS = {0}", this.settings.OutputFPS);
             writer.WriteLine("MergedClip = \\");
-            for (int i = 0; i < filesCount - 1; i++) {
-                writer.WriteLine(ChangeFPSFormatString + " + \\", files[i], "FPS");
+            for (int i = 0; i < filesCount; i++) {
+                // добавление соединителя строк для всех строк, кроме последней
+                string formatString = (i < filesCount - 1) ? ChangeFPSFormatString + " + \\" : ChangeFPSFormatString;
+                string line = string.Format(formatString, files[i], "FPS");
+                if (!string.IsNullOrEmpty(this.settings.SourceReplaceText)) {
+                    line = line.Replace(this.settings.SourceReplaceText, this.settings.TargetReplaceText);
+                }
+                writer.WriteLine(line);
             }
-            writer.WriteLine(ChangeFPSFormatString, files[filesCount - 1], "FPS");
             writer.WriteLine("return MergedClip");
             writer.Close();
         }

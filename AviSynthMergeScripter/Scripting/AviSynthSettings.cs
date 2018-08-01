@@ -31,6 +31,16 @@
         private string outputFPS;
 
         /// <summary>
+        /// Исходный текст для замены в скриптах.
+        /// </summary>
+        private string sourceReplaceText;
+
+        /// <summary>
+        /// Целевой текст для замены в скриптах.
+        /// </summary>
+        private string targetReplaceText;
+
+        /// <summary>
         /// Флаг, указывающий, требуется ли отображать обрабатываемые файлы при построении дерева (на форме).
         /// </summary>
         public bool ShowFiles {
@@ -87,6 +97,30 @@
             }
             set {
                 this.outputFPS = value;
+            }
+        }
+
+        /// <summary>
+        /// Исходный текст для замены в скриптах.
+        /// </summary>
+        public string SourceReplaceText {
+            get {
+                return this.sourceReplaceText;
+            }
+            set {
+                this.sourceReplaceText = value;
+            }
+        }
+
+        /// <summary>
+        /// Целевой текст для замены в скриптах.
+        /// </summary>
+        public string TargetReplaceText {
+            get {
+                return this.targetReplaceText;
+            }
+            set {
+                this.targetReplaceText = value;
             }
         }
 

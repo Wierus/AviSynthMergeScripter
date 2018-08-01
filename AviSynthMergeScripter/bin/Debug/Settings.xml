@@ -5,6 +5,7 @@
     <ShowFiles value="false" default="true" />
     <SearchPattern value="*.avi" default="true" />
     <SearchPattern value="*.avs" />
+    <SearchPattern value="*.mp4" />
     <LoadingPlugin value="C:\Program Files (x86)\AviSynth 2.5\plugins\ffms2.dll" />
     <LoadingPlugin value="C:\Program Files (x86)\AviSynth 2.5\plugins64\ffms2-x64.dll" default="true" />
     <CompressRatio value="1" displayValue="1 (оригинал)" />
@@ -24,12 +25,17 @@
     <OutputFPS value="25" default="true" />
     <OutputFPS value="50" />
     <OutputFPS value="100" />
+    <SourceReplaceText value="" default="true" />
+    <SourceReplaceText value="-1, true, &quot;&quot;, -1, 1, &quot;&quot;, 1)" />
+    <TargetReplaceText value="" default="true" />
+    <TargetReplaceText value="-1, true, &quot;&quot;, -1, 1, &quot;&quot;, 1, &quot;&quot;, -1)" />
   </AviSynthSettings>
   <X264CodecSettings>
     <ShowFiles value="true" default="true" />
     <ShowFiles value="false" />
     <SearchPattern value="*.avi" />
     <SearchPattern value="*.avs" default="true" />
+    <SearchPattern value="*.mp4" />
     <CodecPath value="C:\Program Files (x86)\x264\x264-rev2230-x86.exe" />
     <CodecPath value="C:\Program Files (x86)\x264\x264-rev2230-x64.exe" default="true" />
     <CodecPath value="D:\Programs\x264\x264.exe" default="true" />

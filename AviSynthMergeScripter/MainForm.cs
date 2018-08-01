@@ -42,16 +42,20 @@ namespace AviSynthMergeScripter {
 
         private void LoadAviSynthSettings() {
             this.aviSynthSettings = new AviSynthSettings();
-            this.aviSynthSettingsShowFilesComboBox.DataSource       = this.settings.GetListControlItems      ("AviSynthSettings/ShowFiles");
-            this.aviSynthSettingsShowFilesComboBox.SelectedItem     = this.settings.GetDefaultListControlItem("AviSynthSettings/ShowFiles");
-            this.aviSynthSettingsSearchPatternСomboBox.DataSource   = this.settings.GetListControlItems      ("AviSynthSettings/SearchPattern");
-            this.aviSynthSettingsSearchPatternСomboBox.SelectedItem = this.settings.GetDefaultListControlItem("AviSynthSettings/SearchPattern");
-            this.aviSynthSettingsLoadingPluginComboBox.DataSource   = this.settings.GetListControlItems      ("AviSynthSettings/LoadingPlugin");
-            this.aviSynthSettingsLoadingPluginComboBox.SelectedItem = this.settings.GetDefaultListControlItem("AviSynthSettings/LoadingPlugin");
-            this.aviSynthSettingsCompressRatioComboBox.DataSource   = this.settings.GetListControlItems      ("AviSynthSettings/CompressRatio");
-            this.aviSynthSettingsCompressRatioComboBox.SelectedItem = this.settings.GetDefaultListControlItem("AviSynthSettings/CompressRatio");
-            this.aviSynthSettingsOutputFPSComboBox.DataSource       = this.settings.GetListControlItems      ("AviSynthSettings/OutputFPS");
-            this.aviSynthSettingsOutputFPSComboBox.SelectedItem     = this.settings.GetDefaultListControlItem("AviSynthSettings/OutputFPS");
+            this.aviSynthSettingsShowFilesComboBox.DataSource           = this.settings.GetListControlItems      ("AviSynthSettings/ShowFiles");
+            this.aviSynthSettingsShowFilesComboBox.SelectedItem         = this.settings.GetDefaultListControlItem("AviSynthSettings/ShowFiles");
+            this.aviSynthSettingsSearchPatternСomboBox.DataSource       = this.settings.GetListControlItems      ("AviSynthSettings/SearchPattern");
+            this.aviSynthSettingsSearchPatternСomboBox.SelectedItem     = this.settings.GetDefaultListControlItem("AviSynthSettings/SearchPattern");
+            this.aviSynthSettingsLoadingPluginComboBox.DataSource       = this.settings.GetListControlItems      ("AviSynthSettings/LoadingPlugin");
+            this.aviSynthSettingsLoadingPluginComboBox.SelectedItem     = this.settings.GetDefaultListControlItem("AviSynthSettings/LoadingPlugin");
+            this.aviSynthSettingsCompressRatioComboBox.DataSource       = this.settings.GetListControlItems      ("AviSynthSettings/CompressRatio");
+            this.aviSynthSettingsCompressRatioComboBox.SelectedItem     = this.settings.GetDefaultListControlItem("AviSynthSettings/CompressRatio");
+            this.aviSynthSettingsOutputFPSComboBox.DataSource           = this.settings.GetListControlItems      ("AviSynthSettings/OutputFPS");
+            this.aviSynthSettingsOutputFPSComboBox.SelectedItem         = this.settings.GetDefaultListControlItem("AviSynthSettings/OutputFPS");
+            this.aviSynthSettingsSourceReplaceTextComboBox.DataSource   = this.settings.GetListControlItems      ("AviSynthSettings/SourceReplaceText");
+            this.aviSynthSettingsSourceReplaceTextComboBox.SelectedItem = this.settings.GetDefaultListControlItem("AviSynthSettings/SourceReplaceText");
+            this.aviSynthSettingsTargetReplaceTextComboBox.DataSource   = this.settings.GetListControlItems      ("AviSynthSettings/TargetReplaceText");
+            this.aviSynthSettingsTargetReplaceTextComboBox.SelectedItem = this.settings.GetDefaultListControlItem("AviSynthSettings/TargetReplaceText");
         }
 
         private void LoadX264CodecSettings() {
@@ -90,6 +94,14 @@ namespace AviSynthMergeScripter {
 
         private void aviSynthSettingsOutputFPSComboBox_SelectedValueChanged(object sender, EventArgs e) {
             this.aviSynthSettings.OutputFPS = (string)(this.aviSynthSettingsOutputFPSComboBox.SelectedValue);
+        }
+
+        private void aviSynthSettingsSourceReplaceTextComboBox_SelectedValueChanged(object sender, EventArgs e) {
+            this.aviSynthSettings.SourceReplaceText = (string)(this.aviSynthSettingsSourceReplaceTextComboBox.SelectedValue);
+        }
+
+        private void aviSynthSettingsTargetReplaceTextComboBox_SelectedValueChanged(object sender, EventArgs e) {
+            this.aviSynthSettings.TargetReplaceText = (string)(this.aviSynthSettingsTargetReplaceTextComboBox.SelectedValue);
         }
 
         #endregion
