@@ -74,33 +74,33 @@ namespace AviSynthMergeScripter {
 
         #region Processing AviSynth settings
 
-        private void aviSynthSettingsShowFilesComboBox_SelectedValueChanged(object sender, EventArgs e) {
+        private void AviSynthSettingsShowFilesComboBox_SelectedValueChanged(object sender, EventArgs e) {
             this.aviSynthSettings.ShowFiles = bool.Parse((string)(this.aviSynthSettingsShowFilesComboBox.SelectedValue));
             this.LoadFolderToTreeView();
         }
 
-        private void aviSynthSettingsSearchPatternСomboBox_SelectedValueChanged(object sender, EventArgs e) {
+        private void AviSynthSettingsSearchPatternСomboBox_SelectedValueChanged(object sender, EventArgs e) {
             this.aviSynthSettings.SearchPattern = (string)(this.aviSynthSettingsSearchPatternСomboBox.SelectedValue);
             this.LoadFolderToTreeView();
         }
 
-        private void aviSynthSettingsLoadingPluginComboBox_SelectedValueChanged(object sender, EventArgs e) {
+        private void AviSynthSettingsLoadingPluginComboBox_SelectedValueChanged(object sender, EventArgs e) {
             this.aviSynthSettings.LoadingPlugin = (string)(this.aviSynthSettingsLoadingPluginComboBox.SelectedValue);
         }
 
-        private void aviSynthSettingsCompressRatioComboBox_SelectedValueChanged(object sender, EventArgs e) {
+        private void AviSynthSettingsCompressRatioComboBox_SelectedValueChanged(object sender, EventArgs e) {
             this.aviSynthSettings.CompressRatio = (string)(this.aviSynthSettingsCompressRatioComboBox.SelectedValue);
         }
 
-        private void aviSynthSettingsOutputFPSComboBox_SelectedValueChanged(object sender, EventArgs e) {
+        private void AviSynthSettingsOutputFPSComboBox_SelectedValueChanged(object sender, EventArgs e) {
             this.aviSynthSettings.OutputFPS = (string)(this.aviSynthSettingsOutputFPSComboBox.SelectedValue);
         }
 
-        private void aviSynthSettingsSourceReplaceTextComboBox_SelectedValueChanged(object sender, EventArgs e) {
+        private void AviSynthSettingsSourceReplaceTextComboBox_SelectedValueChanged(object sender, EventArgs e) {
             this.aviSynthSettings.SourceReplaceText = (string)(this.aviSynthSettingsSourceReplaceTextComboBox.SelectedValue);
         }
 
-        private void aviSynthSettingsTargetReplaceTextComboBox_SelectedValueChanged(object sender, EventArgs e) {
+        private void AviSynthSettingsTargetReplaceTextComboBox_SelectedValueChanged(object sender, EventArgs e) {
             this.aviSynthSettings.TargetReplaceText = (string)(this.aviSynthSettingsTargetReplaceTextComboBox.SelectedValue);
         }
 
@@ -108,49 +108,49 @@ namespace AviSynthMergeScripter {
 
         #region Processing X264 Codec settings
 
-        private void x264CodecSettingsShowFilesComboBox_SelectedValueChanged(object sender, EventArgs e) {
+        private void X264CodecSettingsShowFilesComboBox_SelectedValueChanged(object sender, EventArgs e) {
             this.x264CodecSettings.ShowFiles = bool.Parse((string)(this.x264CodecSettingsShowFilesComboBox.SelectedValue));
             this.LoadFolderToTreeView();
         }
 
-        private void x264CodecSettingsSearchPatternComboBox_SelectedValueChanged(object sender, EventArgs e) {
+        private void X264CodecSettingsSearchPatternComboBox_SelectedValueChanged(object sender, EventArgs e) {
             this.x264CodecSettings.SearchPattern = (string)(this.x264CodecSettingsSearchPatternComboBox.SelectedValue);
             this.LoadFolderToTreeView();
         }
 
-        private void x264CodecSettingsCodecPathComboBox_SelectedValueChanged(object sender, EventArgs e) {
+        private void X264CodecSettingsCodecPathComboBox_SelectedValueChanged(object sender, EventArgs e) {
             this.x264CodecSettings.CodecPath = (string)(this.x264CodecSettingsCodecPathComboBox.SelectedValue);
         }
 
-        private void x264CodecSettingsCodecOptionsComboBox_SelectedValueChanged(object sender, EventArgs e) {
+        private void X264CodecSettingsCodecOptionsComboBox_SelectedValueChanged(object sender, EventArgs e) {
             this.x264CodecSettings.CodecOptions = (string)(this.x264CodecSettingsCodecOptionsComboBox.SelectedValue);
         }
 
-        private void x264CodecSettingsOutputFileExtensionComboBox_SelectedValueChanged(object sender, EventArgs e) {
+        private void X264CodecSettingsOutputFileExtensionComboBox_SelectedValueChanged(object sender, EventArgs e) {
             this.x264CodecSettings.OutputFileExtension = (string)(this.x264CodecSettingsOutputFileExtensionComboBox.SelectedValue);
         }
 
         #endregion
 
-        private void rootFolderPathTextBox_TextChanged(object sender, EventArgs e) {
+        private void RootFolderPathTextBox_TextChanged(object sender, EventArgs e) {
             this.rootFolderPath = this.rootFolderPathTextBox.Text;
             this.LoadFolderToTreeView();
         }
 
-        private void rootFolderPathBrowseButton_Click(object sender, EventArgs e) {
+        private void RootFolderPathBrowseButton_Click(object sender, EventArgs e) {
             if (this.folderBrowserDialog.ShowDialog() == DialogResult.OK) {
                 this.rootFolderPathTextBox.Text = this.folderBrowserDialog.SelectedPath;
                 this.LoadFolderToTreeView();
             }
         }
 
-        private void aviSynthSettingsOutputFolderPathBrowseButton_Click(object sender, EventArgs e) {
+        private void AviSynthSettingsOutputFolderPathBrowseButton_Click(object sender, EventArgs e) {
             if (this.folderBrowserDialog.ShowDialog() == DialogResult.OK) {
                 this.aviSynthSettingsOutputFolderPathTextBox.Text = this.folderBrowserDialog.SelectedPath;
             }
         }
 
-        private void x264CodecSettingsOutputFolderPathBrowseButton_Click(object sender, EventArgs e) {
+        private void X264CodecSettingsOutputFolderPathBrowseButton_Click(object sender, EventArgs e) {
             if (this.folderBrowserDialog.ShowDialog() == DialogResult.OK) {
                 this.x264CodecSettingsOutputFolderPathTextBox.Text = this.folderBrowserDialog.SelectedPath;
             }
@@ -168,36 +168,36 @@ namespace AviSynthMergeScripter {
             this.LoadFolderToTreeView();
         }
 
-        private void aviSynthSettingsRadioButton_CheckedChanged(object sender, EventArgs e) {
+        private void AviSynthSettingsRadioButton_CheckedChanged(object sender, EventArgs e) {
             if (this.aviSynthSettingsRadioButton.Checked) {
                 this.workMode = WorkMode.AviSynthScript;
                 this.ProcessRadioButtonsCheckState();
             }
         }
 
-        private void x264CodecSettingsRadioButton_CheckedChanged(object sender, EventArgs e) {
+        private void X264CodecSettingsRadioButton_CheckedChanged(object sender, EventArgs e) {
             if (this.x264CodecSettingsRadioButton.Checked) {
                 this.workMode = WorkMode.X264Codec;
                 this.ProcessRadioButtonsCheckState();
             }
         }
 
-        private void aviSynthSettingsRadioButton_MouseEnter(object sender, EventArgs e) {
+        private void AviSynthSettingsRadioButton_MouseEnter(object sender, EventArgs e) {
             this.aviSynthSettingsRadioButton.BackColor = OnMouseEnterColor;
             this.aviSynthSettingsGroupBox.BackColor    = OnMouseEnterColor;
         }
 
-        private void aviSynthSettingsRadioButton_MouseLeave(object sender, EventArgs e) {
+        private void AviSynthSettingsRadioButton_MouseLeave(object sender, EventArgs e) {
             this.aviSynthSettingsRadioButton.BackColor = OnMouseLeaveColor;
             this.aviSynthSettingsGroupBox.BackColor    = OnMouseLeaveColor;
         }
 
-        private void x264CodecSettingsRadioButton_MouseEnter(object sender, EventArgs e) {
+        private void X264CodecSettingsRadioButton_MouseEnter(object sender, EventArgs e) {
             this.x264CodecSettingsRadioButton.BackColor = OnMouseEnterColor;
             this.x264CodecSettingsGroupBox.BackColor    = OnMouseEnterColor;
         }
 
-        private void x264CodecSettingsRadioButton_MouseLeave(object sender, EventArgs e) {
+        private void X264CodecSettingsRadioButton_MouseLeave(object sender, EventArgs e) {
             this.x264CodecSettingsRadioButton.BackColor = OnMouseLeaveColor;
             this.x264CodecSettingsGroupBox.BackColor    = OnMouseLeaveColor;
         }
@@ -227,12 +227,12 @@ namespace AviSynthMergeScripter {
             }
         }
 
-        private void pathesTreeView_AfterCheck(object sender, TreeViewEventArgs e) {
+        private void PathesTreeView_AfterCheck(object sender, TreeViewEventArgs e) {
             TreeViewUtils.SetCheckStateOfChildNodes(e.Node, e.Action);
             TreeViewUtils.SetCheckStateOfParentNodes(e.Node, e.Action);
         }
 
-        private void aviSynthSettingsCreateScriptsButton_Click(object sender, EventArgs e) {
+        private void AviSynthSettingsCreateScriptsButton_Click(object sender, EventArgs e) {
             List<string> checkedPathesList = TreeViewUtils.GetCheckedFolders(this.pathesTreeView);
             if ((checkedPathesList == null) || (checkedPathesList.Count == 0)) {
                 return;
@@ -243,7 +243,7 @@ namespace AviSynthMergeScripter {
             }
         }
 
-        private void x264CodecSettingsEncodeFilesButton_Click(object sender, EventArgs e) {
+        private void X264CodecSettingsEncodeFilesButton_Click(object sender, EventArgs e) {
             List<string> checkedPathesList = TreeViewUtils.GetCheckedFiles(this.pathesTreeView);
             if ((checkedPathesList == null) || (checkedPathesList.Count == 0)) {
                 return;
@@ -252,16 +252,16 @@ namespace AviSynthMergeScripter {
             this.currentX264CodecScriptIndex = -1;
             foreach (string path in checkedPathesList) {
                 X264CodecScript x264CodecScript = new X264CodecScript(path, this.x264CodecSettingsOutputFolderPathTextBox.Text, this.x264CodecSettings);
-                x264CodecScript.CodecOutputDataReceived += new DataReceivedEventHandler(x264CodecScript_CodecOutputDataReceived);
-                x264CodecScript.CodecErrorDataReceived  += new DataReceivedEventHandler(x264CodecScript_CodecErrorDataReceived);
-                x264CodecScript.EncodeFileCompleted     += new EventHandler(x264CodecScript_EncodeFileCompleted);
+                x264CodecScript.CodecOutputDataReceived += new DataReceivedEventHandler(X264CodecScript_CodecOutputDataReceived);
+                x264CodecScript.CodecErrorDataReceived  += new DataReceivedEventHandler(X264CodecScript_CodecErrorDataReceived);
+                x264CodecScript.EncodeFileCompleted     += new EventHandler(X264CodecScript_EncodeFileCompleted);
                 this.x264CodecScripts.Add(x264CodecScript);
             }
             this.currentX264CodecScriptIndex = 0;
             this.x264CodecScripts[this.currentX264CodecScriptIndex].StartEncodeFile();
         }
 
-        private void x264CodecScript_CodecOutputDataReceived(object sender, DataReceivedEventArgs e) {
+        private void X264CodecScript_CodecOutputDataReceived(object sender, DataReceivedEventArgs e) {
             if (this.InvokeRequired) {
                 this.Invoke(new MethodInvoker(delegate() {
                     this.statusLabel.Text = e.Data;
@@ -272,7 +272,7 @@ namespace AviSynthMergeScripter {
             }
         }
 
-        private void x264CodecScript_CodecErrorDataReceived(object sender, DataReceivedEventArgs e) {
+        private void X264CodecScript_CodecErrorDataReceived(object sender, DataReceivedEventArgs e) {
             if (this.InvokeRequired) {
                 this.Invoke(new MethodInvoker(delegate() {
                     this.statusLabel.Text = e.Data;
@@ -283,7 +283,7 @@ namespace AviSynthMergeScripter {
             }
         }
         
-        private void x264CodecScript_EncodeFileCompleted(object sender, EventArgs e) {
+        private void X264CodecScript_EncodeFileCompleted(object sender, EventArgs e) {
             if (this.currentX264CodecScriptIndex < this.x264CodecScripts.Count - 1) {
                 this.currentX264CodecScriptIndex++;
                 this.x264CodecScripts[this.currentX264CodecScriptIndex].StartEncodeFile();

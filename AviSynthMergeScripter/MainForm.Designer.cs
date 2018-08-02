@@ -100,7 +100,7 @@
             this.rootFolderPathTextBox.Name = "rootFolderPathTextBox";
             this.rootFolderPathTextBox.Size = new System.Drawing.Size(877, 20);
             this.rootFolderPathTextBox.TabIndex = 0;
-            this.rootFolderPathTextBox.TextChanged += new System.EventHandler(this.rootFolderPathTextBox_TextChanged);
+            this.rootFolderPathTextBox.TextChanged += new System.EventHandler(this.RootFolderPathTextBox_TextChanged);
             // 
             // rootFolderPathBrowseButton
             // 
@@ -111,7 +111,7 @@
             this.rootFolderPathBrowseButton.TabIndex = 1;
             this.rootFolderPathBrowseButton.Text = "...";
             this.rootFolderPathBrowseButton.UseVisualStyleBackColor = true;
-            this.rootFolderPathBrowseButton.Click += new System.EventHandler(this.rootFolderPathBrowseButton_Click);
+            this.rootFolderPathBrowseButton.Click += new System.EventHandler(this.RootFolderPathBrowseButton_Click);
             // 
             // pathesTreeGroupBox
             // 
@@ -137,7 +137,7 @@
             this.pathesTreeView.ShowNodeToolTips = true;
             this.pathesTreeView.Size = new System.Drawing.Size(306, 412);
             this.pathesTreeView.TabIndex = 0;
-            this.pathesTreeView.AfterCheck += new System.Windows.Forms.TreeViewEventHandler(this.pathesTreeView_AfterCheck);
+            this.pathesTreeView.AfterCheck += new System.Windows.Forms.TreeViewEventHandler(this.PathesTreeView_AfterCheck);
             // 
             // aviSynthSettingsRadioButton
             // 
@@ -148,9 +148,9 @@
             this.aviSynthSettingsRadioButton.TabIndex = 2;
             this.aviSynthSettingsRadioButton.TabStop = true;
             this.aviSynthSettingsRadioButton.UseVisualStyleBackColor = true;
-            this.aviSynthSettingsRadioButton.CheckedChanged += new System.EventHandler(this.aviSynthSettingsRadioButton_CheckedChanged);
-            this.aviSynthSettingsRadioButton.MouseEnter += new System.EventHandler(this.aviSynthSettingsRadioButton_MouseEnter);
-            this.aviSynthSettingsRadioButton.MouseLeave += new System.EventHandler(this.aviSynthSettingsRadioButton_MouseLeave);
+            this.aviSynthSettingsRadioButton.CheckedChanged += new System.EventHandler(this.AviSynthSettingsRadioButton_CheckedChanged);
+            this.aviSynthSettingsRadioButton.MouseEnter += new System.EventHandler(this.AviSynthSettingsRadioButton_MouseEnter);
+            this.aviSynthSettingsRadioButton.MouseLeave += new System.EventHandler(this.AviSynthSettingsRadioButton_MouseLeave);
             // 
             // x264CodecSettingsRadioButton
             // 
@@ -161,9 +161,9 @@
             this.x264CodecSettingsRadioButton.TabIndex = 3;
             this.x264CodecSettingsRadioButton.TabStop = true;
             this.x264CodecSettingsRadioButton.UseVisualStyleBackColor = true;
-            this.x264CodecSettingsRadioButton.CheckedChanged += new System.EventHandler(this.x264CodecSettingsRadioButton_CheckedChanged);
-            this.x264CodecSettingsRadioButton.MouseEnter += new System.EventHandler(this.x264CodecSettingsRadioButton_MouseEnter);
-            this.x264CodecSettingsRadioButton.MouseLeave += new System.EventHandler(this.x264CodecSettingsRadioButton_MouseLeave);
+            this.x264CodecSettingsRadioButton.CheckedChanged += new System.EventHandler(this.X264CodecSettingsRadioButton_CheckedChanged);
+            this.x264CodecSettingsRadioButton.MouseEnter += new System.EventHandler(this.X264CodecSettingsRadioButton_MouseEnter);
+            this.x264CodecSettingsRadioButton.MouseLeave += new System.EventHandler(this.X264CodecSettingsRadioButton_MouseLeave);
             // 
             // aviSynthSettingsGroupBox
             // 
@@ -215,7 +215,7 @@
             this.aviSynthSettingsShowFilesComboBox.Size = new System.Drawing.Size(75, 21);
             this.aviSynthSettingsShowFilesComboBox.TabIndex = 1;
             this.aviSynthSettingsShowFilesComboBox.ValueMember = "ValueMember";
-            this.aviSynthSettingsShowFilesComboBox.SelectedValueChanged += new System.EventHandler(this.aviSynthSettingsShowFilesComboBox_SelectedValueChanged);
+            this.aviSynthSettingsShowFilesComboBox.SelectedValueChanged += new System.EventHandler(this.AviSynthSettingsShowFilesComboBox_SelectedValueChanged);
             // 
             // aviSynthSettingsSearchPatternLabel
             // 
@@ -237,7 +237,7 @@
             this.aviSynthSettingsSearchPatternСomboBox.Size = new System.Drawing.Size(75, 21);
             this.aviSynthSettingsSearchPatternСomboBox.TabIndex = 3;
             this.aviSynthSettingsSearchPatternСomboBox.ValueMember = "ValueMember";
-            this.aviSynthSettingsSearchPatternСomboBox.SelectedValueChanged += new System.EventHandler(this.aviSynthSettingsSearchPatternСomboBox_SelectedValueChanged);
+            this.aviSynthSettingsSearchPatternСomboBox.SelectedValueChanged += new System.EventHandler(this.AviSynthSettingsSearchPatternСomboBox_SelectedValueChanged);
             // 
             // aviSynthSettingsNoteLabel
             // 
@@ -271,7 +271,7 @@
             this.aviSynthSettingsLoadingPluginComboBox.Size = new System.Drawing.Size(360, 21);
             this.aviSynthSettingsLoadingPluginComboBox.TabIndex = 6;
             this.aviSynthSettingsLoadingPluginComboBox.ValueMember = "ValueMember";
-            this.aviSynthSettingsLoadingPluginComboBox.SelectedValueChanged += new System.EventHandler(this.aviSynthSettingsLoadingPluginComboBox_SelectedValueChanged);
+            this.aviSynthSettingsLoadingPluginComboBox.SelectedValueChanged += new System.EventHandler(this.AviSynthSettingsLoadingPluginComboBox_SelectedValueChanged);
             // 
             // aviSynthSettingsCompressRatioLabel
             // 
@@ -295,7 +295,7 @@
             this.aviSynthSettingsCompressRatioComboBox.Size = new System.Drawing.Size(360, 21);
             this.aviSynthSettingsCompressRatioComboBox.TabIndex = 8;
             this.aviSynthSettingsCompressRatioComboBox.ValueMember = "ValueMember";
-            this.aviSynthSettingsCompressRatioComboBox.SelectedValueChanged += new System.EventHandler(this.aviSynthSettingsCompressRatioComboBox_SelectedValueChanged);
+            this.aviSynthSettingsCompressRatioComboBox.SelectedValueChanged += new System.EventHandler(this.AviSynthSettingsCompressRatioComboBox_SelectedValueChanged);
             // 
             // aviSynthSettingsOutputFPSLabel
             // 
@@ -319,7 +319,7 @@
             this.aviSynthSettingsOutputFPSComboBox.Size = new System.Drawing.Size(360, 21);
             this.aviSynthSettingsOutputFPSComboBox.TabIndex = 10;
             this.aviSynthSettingsOutputFPSComboBox.ValueMember = "ValueMember";
-            this.aviSynthSettingsOutputFPSComboBox.SelectedValueChanged += new System.EventHandler(this.aviSynthSettingsOutputFPSComboBox_SelectedValueChanged);
+            this.aviSynthSettingsOutputFPSComboBox.SelectedValueChanged += new System.EventHandler(this.AviSynthSettingsOutputFPSComboBox_SelectedValueChanged);
             // 
             // aviSynthSettingsSourceReplaceTextLabel
             // 
@@ -343,7 +343,7 @@
             this.aviSynthSettingsSourceReplaceTextComboBox.Size = new System.Drawing.Size(360, 21);
             this.aviSynthSettingsSourceReplaceTextComboBox.TabIndex = 12;
             this.aviSynthSettingsSourceReplaceTextComboBox.ValueMember = "ValueMember";
-            this.aviSynthSettingsSourceReplaceTextComboBox.SelectedValueChanged += new System.EventHandler(this.aviSynthSettingsSourceReplaceTextComboBox_SelectedValueChanged);
+            this.aviSynthSettingsSourceReplaceTextComboBox.SelectedValueChanged += new System.EventHandler(this.AviSynthSettingsSourceReplaceTextComboBox_SelectedValueChanged);
             // 
             // aviSynthSettingsTargetReplaceTextLabel
             // 
@@ -367,7 +367,7 @@
             this.aviSynthSettingsTargetReplaceTextComboBox.Size = new System.Drawing.Size(360, 21);
             this.aviSynthSettingsTargetReplaceTextComboBox.TabIndex = 14;
             this.aviSynthSettingsTargetReplaceTextComboBox.ValueMember = "ValueMember";
-            this.aviSynthSettingsTargetReplaceTextComboBox.SelectedValueChanged += new System.EventHandler(this.aviSynthSettingsTargetReplaceTextComboBox_SelectedValueChanged);
+            this.aviSynthSettingsTargetReplaceTextComboBox.SelectedValueChanged += new System.EventHandler(this.AviSynthSettingsTargetReplaceTextComboBox_SelectedValueChanged);
             // 
             // aviSynthSettingsOutputFolderPathLabel
             // 
@@ -396,7 +396,7 @@
             this.aviSynthSettingsOutputFolderPathBrowseButton.TabIndex = 17;
             this.aviSynthSettingsOutputFolderPathBrowseButton.Text = "...";
             this.aviSynthSettingsOutputFolderPathBrowseButton.UseVisualStyleBackColor = true;
-            this.aviSynthSettingsOutputFolderPathBrowseButton.Click += new System.EventHandler(this.aviSynthSettingsOutputFolderPathBrowseButton_Click);
+            this.aviSynthSettingsOutputFolderPathBrowseButton.Click += new System.EventHandler(this.AviSynthSettingsOutputFolderPathBrowseButton_Click);
             // 
             // aviSynthSettingsCreateScriptsButton
             // 
@@ -408,7 +408,7 @@
             this.aviSynthSettingsCreateScriptsButton.TabIndex = 18;
             this.aviSynthSettingsCreateScriptsButton.Text = "Создать скрипты";
             this.aviSynthSettingsCreateScriptsButton.UseVisualStyleBackColor = true;
-            this.aviSynthSettingsCreateScriptsButton.Click += new System.EventHandler(this.aviSynthSettingsCreateScriptsButton_Click);
+            this.aviSynthSettingsCreateScriptsButton.Click += new System.EventHandler(this.AviSynthSettingsCreateScriptsButton_Click);
             // 
             // x264CodecSettingsGroupBox
             // 
@@ -456,7 +456,7 @@
             this.x264CodecSettingsShowFilesComboBox.Size = new System.Drawing.Size(75, 21);
             this.x264CodecSettingsShowFilesComboBox.TabIndex = 1;
             this.x264CodecSettingsShowFilesComboBox.ValueMember = "ValueMember";
-            this.x264CodecSettingsShowFilesComboBox.SelectedValueChanged += new System.EventHandler(this.x264CodecSettingsShowFilesComboBox_SelectedValueChanged);
+            this.x264CodecSettingsShowFilesComboBox.SelectedValueChanged += new System.EventHandler(this.X264CodecSettingsShowFilesComboBox_SelectedValueChanged);
             // 
             // x264CodecSettingsSearchPatternLabel
             // 
@@ -478,7 +478,7 @@
             this.x264CodecSettingsSearchPatternComboBox.Size = new System.Drawing.Size(75, 21);
             this.x264CodecSettingsSearchPatternComboBox.TabIndex = 3;
             this.x264CodecSettingsSearchPatternComboBox.ValueMember = "ValueMember";
-            this.x264CodecSettingsSearchPatternComboBox.SelectedValueChanged += new System.EventHandler(this.x264CodecSettingsSearchPatternComboBox_SelectedValueChanged);
+            this.x264CodecSettingsSearchPatternComboBox.SelectedValueChanged += new System.EventHandler(this.X264CodecSettingsSearchPatternComboBox_SelectedValueChanged);
             // 
             // x264CodecSettingsNoteLabel
             // 
@@ -512,7 +512,7 @@
             this.x264CodecSettingsCodecPathComboBox.Size = new System.Drawing.Size(360, 21);
             this.x264CodecSettingsCodecPathComboBox.TabIndex = 6;
             this.x264CodecSettingsCodecPathComboBox.ValueMember = "ValueMember";
-            this.x264CodecSettingsCodecPathComboBox.SelectedValueChanged += new System.EventHandler(this.x264CodecSettingsCodecPathComboBox_SelectedValueChanged);
+            this.x264CodecSettingsCodecPathComboBox.SelectedValueChanged += new System.EventHandler(this.X264CodecSettingsCodecPathComboBox_SelectedValueChanged);
             // 
             // x264CodecSettingsCodecOptionsLabel
             // 
@@ -536,7 +536,7 @@
             this.x264CodecSettingsCodecOptionsComboBox.Size = new System.Drawing.Size(360, 21);
             this.x264CodecSettingsCodecOptionsComboBox.TabIndex = 8;
             this.x264CodecSettingsCodecOptionsComboBox.ValueMember = "ValueMember";
-            this.x264CodecSettingsCodecOptionsComboBox.SelectedValueChanged += new System.EventHandler(this.x264CodecSettingsCodecOptionsComboBox_SelectedValueChanged);
+            this.x264CodecSettingsCodecOptionsComboBox.SelectedValueChanged += new System.EventHandler(this.X264CodecSettingsCodecOptionsComboBox_SelectedValueChanged);
             // 
             // x264CodecSettingsOutputFileExtensionLabel
             // 
@@ -560,7 +560,7 @@
             this.x264CodecSettingsOutputFileExtensionComboBox.Size = new System.Drawing.Size(360, 21);
             this.x264CodecSettingsOutputFileExtensionComboBox.TabIndex = 10;
             this.x264CodecSettingsOutputFileExtensionComboBox.ValueMember = "ValueMember";
-            this.x264CodecSettingsOutputFileExtensionComboBox.SelectedValueChanged += new System.EventHandler(this.x264CodecSettingsOutputFileExtensionComboBox_SelectedValueChanged);
+            this.x264CodecSettingsOutputFileExtensionComboBox.SelectedValueChanged += new System.EventHandler(this.X264CodecSettingsOutputFileExtensionComboBox_SelectedValueChanged);
             // 
             // x264CodecSettingsOutputFolderPathLabel
             // 
@@ -589,7 +589,7 @@
             this.x264CodecSettingsOutputFolderPathBrowseButton.TabIndex = 13;
             this.x264CodecSettingsOutputFolderPathBrowseButton.Text = "...";
             this.x264CodecSettingsOutputFolderPathBrowseButton.UseVisualStyleBackColor = true;
-            this.x264CodecSettingsOutputFolderPathBrowseButton.Click += new System.EventHandler(this.x264CodecSettingsOutputFolderPathBrowseButton_Click);
+            this.x264CodecSettingsOutputFolderPathBrowseButton.Click += new System.EventHandler(this.X264CodecSettingsOutputFolderPathBrowseButton_Click);
             // 
             // x264CodecSettingsEncodeFilesButton
             // 
@@ -601,7 +601,7 @@
             this.x264CodecSettingsEncodeFilesButton.TabIndex = 14;
             this.x264CodecSettingsEncodeFilesButton.Text = "Перекодировать файлы";
             this.x264CodecSettingsEncodeFilesButton.UseVisualStyleBackColor = true;
-            this.x264CodecSettingsEncodeFilesButton.Click += new System.EventHandler(this.x264CodecSettingsEncodeFilesButton_Click);
+            this.x264CodecSettingsEncodeFilesButton.Click += new System.EventHandler(this.X264CodecSettingsEncodeFilesButton_Click);
             // 
             // statusLabel
             // 

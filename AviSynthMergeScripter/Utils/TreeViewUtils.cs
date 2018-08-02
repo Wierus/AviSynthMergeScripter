@@ -28,8 +28,9 @@ namespace AviSynthMergeScripter.Utils {
                 throw new FormatException("Путь не существует.");
             }
             try {
-                TreeNode node = new TreeNode(PathUtils.GetLastName(inputFolderPath));
-                node.ToolTipText = PathUtils.GetFormattedPath(inputFolderPath);
+                TreeNode node = new TreeNode(PathUtils.GetLastName(inputFolderPath)) {
+                    ToolTipText = PathUtils.GetFormattedPath(inputFolderPath)
+                };
                 treeView.Nodes.Add(node);
                 LoadFolderToNode(node, inputFolderPath, loadFiles, searchPattern);
             }
@@ -49,15 +50,17 @@ namespace AviSynthMergeScripter.Utils {
         private static void LoadFolderToNode(TreeNode node, string folderPath, bool loadFiles, string searchPattern) {
             try {
                 foreach (string subFolderPath in Directory.GetDirectories(folderPath)) {
-                    TreeNode subNode = new TreeNode(PathUtils.GetLastName(subFolderPath));
-                    subNode.ToolTipText = PathUtils.GetFormattedPath(subFolderPath);
+                    TreeNode subNode = new TreeNode(PathUtils.GetLastName(subFolderPath)) {
+                        ToolTipText = PathUtils.GetFormattedPath(subFolderPath)
+                    };
                     node.Nodes.Add(subNode);
                     LoadFolderToNode(subNode, subFolderPath, loadFiles, searchPattern);
                 }
                 if (loadFiles) {
                     foreach (string filePath in Directory.GetFiles(folderPath, searchPattern)) {
-                        TreeNode subNode = new TreeNode(PathUtils.GetLastName(filePath));
-                        subNode.ToolTipText = filePath;
+                        TreeNode subNode = new TreeNode(PathUtils.GetLastName(filePath)) {
+                            ToolTipText = filePath
+                        };
                         node.Nodes.Add(subNode);
                     }
                 }

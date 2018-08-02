@@ -44,7 +44,7 @@ namespace AviSynthMergeScripter.Utils {
         public static string GetLastName(string path) {
             if (LFSRegex.IsMatch(path)) {
                 string lastName = LFSRegex.Match(path).Result("${LastName}");
-                return (lastName != string.Empty) ? lastName : LFSRegex.Match(path).Result("${Disk}:");
+                return (!string.IsNullOrEmpty(lastName)) ? lastName : LFSRegex.Match(path).Result("${Disk}:");
             }
             else if (UNCRegex.IsMatch(path)) {
                 string lastName = UNCRegex.Match(path).Result("${LastName}");

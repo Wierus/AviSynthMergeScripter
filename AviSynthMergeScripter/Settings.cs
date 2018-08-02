@@ -61,7 +61,7 @@ namespace AviSynthMergeScripter {
             foreach (XmlElement element in selectedXmlNodes) {
                 string valueMember   = element.GetAttribute(ValueMemberAttributeName);
                 string displayMember = element.GetAttribute(DisplayMemberAttributeName);
-                if (displayMember == string.Empty) {
+                if (string.IsNullOrEmpty(displayMember)) {
                     displayMember = valueMember;
                 }
                 listControlItems.Add(new ListControlItem(valueMember, displayMember));

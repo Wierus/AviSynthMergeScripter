@@ -99,7 +99,7 @@ namespace AviSynthMergeScripter.Scripting {
         public X264CodecScript(string inputFilePath, string outputFolderPath, X264CodecSettings settings) {
             this.settings = settings;
             this.inputFilePath = inputFilePath;
-            string outputFileName = string.Format(OutputFileNameFormat, PathUtils.GetLastName(inputFilePath), (this.settings.CodecOptions != string.Empty) ? this.settings.CodecOptions : EmptyCodecOptionsString, this.settings.OutputFileExtension);
+            string outputFileName = string.Format(OutputFileNameFormat, PathUtils.GetLastName(inputFilePath), (!string.IsNullOrEmpty(this.settings.CodecOptions)) ? this.settings.CodecOptions : EmptyCodecOptionsString, this.settings.OutputFileExtension);
             this.outputFilePath = PathUtils.GetPathWithTrailingSlash(outputFolderPath) + outputFileName;
         }
 
@@ -111,15 +111,17 @@ namespace AviSynthMergeScripter.Scripting {
             string arguments = string.Format(CodecArgumentsFormat, this.settings.CodecOptions, this.outputFilePath, this.inputFilePath);
             this.isCodecStandardOutputClosed = false;
             this.isCodecStandardErrorClosed = false;
-            Process process = new Process();
-            process.StartInfo = new ProcessStartInfo(this.settings.CodecPath, arguments);
-            process.StartInfo.UseShellExecute = false;
-            process.StartInfo.RedirectStandardOutput = true;
-            process.StartInfo.RedirectStandardError = true;
-            process.EnableRaisingEvents = true;
-            process.OutputDataReceived += new DataReceivedEventHandler(process_OutputDataReceived);
-            process.ErrorDataReceived += new DataReceivedEventHandler(process_ErrorDataReceived);
-            process.Exited += new EventHandler(process_Exited);
+            Process process = new Process {
+                StartInfo = new ProcessStartInfo(this.settings.CodecPath, arguments) {
+                    UseShellExecute = false,
+                    RedirectStandardOutput = true,
+                    RedirectStandardError = true
+                },
+                EnableRaisingEvents = true
+            };
+            process.OutputDataReceived += new DataReceivedEventHandler(Process_OutputDataReceived);
+            process.ErrorDataReceived += new DataReceivedEventHandler(Process_ErrorDataReceived);
+            process.Exited += new EventHandler(Process_Exited);
             process.Start();
             process.BeginOutputReadLine();
             process.BeginErrorReadLine();
@@ -130,7 +132,7 @@ namespace AviSynthMergeScripter.Scripting {
         /// </summary>
         /// <param name="sender">Источник события.</param>
         /// <param name="e">Данные, относящиеся к событию.</param>
-        private void process_OutputDataReceived(object sender, DataReceivedEventArgs e) {
+        private void Process_OutputDataReceived(object sender, DataReceivedEventArgs e) {
             if (e.Data != null) {
                 lock (this.logWriter) {
                     this.logWriter.WriteLine(e.Data);
@@ -147,7 +149,7 @@ namespace AviSynthMergeScripter.Scripting {
         /// </summary>
         /// <param name="sender">Источник события.</param>
         /// <param name="e">Данные, относящиеся к событию.</param>
-        private void process_ErrorDataReceived(object sender, DataReceivedEventArgs e) {
+        private void Process_ErrorDataReceived(object sender, DataReceivedEventArgs e) {
             if (e.Data != null) {
                 lock (this.logWriter) {
                     this.logWriter.WriteLine(e.Data);
@@ -164,7 +166,7 @@ namespace AviSynthMergeScripter.Scripting {
         /// </summary>
         /// <param name="sender">Источник события.</param>
         /// <param name="e">Данные, относящиеся к событию.</param>
-        private void process_Exited(object sender, EventArgs e) {
+        private void Process_Exited(object sender, EventArgs e) {
             while (!(this.isCodecStandardOutputClosed && this.isCodecStandardErrorClosed)) {
                 Thread.Sleep(0);
             }
