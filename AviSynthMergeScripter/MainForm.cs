@@ -71,6 +71,8 @@ namespace AviSynthMergeScripter {
             this.x264CodecSettingsCodecOptionsComboBox.SelectedItem        = this.settings.GetDefaultListControlItem("X264CodecSettings/CodecOptions");
             this.x264CodecSettingsOutputFileExtensionComboBox.DataSource   = this.settings.GetListControlItems      ("X264CodecSettings/OutputFileExtension");
             this.x264CodecSettingsOutputFileExtensionComboBox.SelectedItem = this.settings.GetDefaultListControlItem("X264CodecSettings/OutputFileExtension");
+            this.x264CodecSettingsMaxEncodingTimeComboBox.DataSource       = this.settings.GetListControlItems      ("X264CodecSettings/MaxEncodingTime");
+            this.x264CodecSettingsMaxEncodingTimeComboBox.SelectedItem     = this.settings.GetDefaultListControlItem("X264CodecSettings/MaxEncodingTime");
         }
 
         #region Processing AviSynth settings
@@ -129,6 +131,10 @@ namespace AviSynthMergeScripter {
 
         private void X264CodecSettingsOutputFileExtensionComboBox_SelectedValueChanged(object sender, EventArgs e) {
             this.x264CodecSettings.OutputFileExtension = (string)(this.x264CodecSettingsOutputFileExtensionComboBox.SelectedValue);
+        }
+
+        private void X264CodecSettingsMaxEncodingTimeComboBox_SelectedValueChanged(object sender, EventArgs e) {
+            this.x264CodecSettings.MaxEncodingTime = TimeSpan.Parse((string)(this.x264CodecSettingsMaxEncodingTimeComboBox.SelectedValue));
         }
 
         #endregion

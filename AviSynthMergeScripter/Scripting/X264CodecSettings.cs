@@ -1,4 +1,6 @@
-﻿namespace AviSynthMergeScripter.Scripting {
+﻿using System;
+
+namespace AviSynthMergeScripter.Scripting {
 
     /// <summary>
     /// Настройки для кодека x264.
@@ -29,6 +31,11 @@
         /// Расширение выходного файла.
         /// </summary>
         private string outputFileExtension;
+
+        /// <summary>
+        /// Максимально допустимое время кодирования файла, по истечении которого процесс кодека будет принудительно завершен.
+        /// </summary>
+        private TimeSpan maxEncodingTime;
 
         /// <summary>
         /// Флаг, указывающий, требуется ли отображать обрабатываемые файлы при построении дерева (на форме).
@@ -87,6 +94,18 @@
             }
             set {
                 this.outputFileExtension = value;
+            }
+        }
+
+        /// <summary>
+        /// Максимально допустимое время кодирования файла, по истечении которого процесс кодека будет принудительно завершен.
+        /// </summary>
+        public TimeSpan MaxEncodingTime {
+            get {
+                return this.maxEncodingTime;
+            }
+            set {
+                this.maxEncodingTime = value;
             }
         }
 

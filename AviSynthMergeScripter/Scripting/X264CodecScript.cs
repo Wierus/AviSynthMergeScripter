@@ -31,6 +31,11 @@ namespace AviSynthMergeScripter.Scripting {
         private const string LogFileExtension = "log";
 
         /// <summary>
+        /// Расширение лог-файла для записи ошибок.
+        /// </summary>
+        private const string ErrorLogFileExtension = "error.log";
+
+        /// <summary>
         /// Формат имени лог-файла.
         /// {0} - Путь к выходному файлу.
         /// {1} - Расширение лог-файла.
@@ -74,7 +79,22 @@ namespace AviSynthMergeScripter.Scripting {
         /// Флаг, указывающий, закрыт ли стандартный поток ошибок кодека.
         /// </summary>
         private bool isCodecStandardErrorClosed;
-        
+
+        /// <summary>
+        /// Время начала кодирования.
+        /// </summary>
+        private DateTime startEncodingDateTime;
+
+        /// <summary>
+        /// Время завершения кодирования.
+        /// </summary>
+        private DateTime finishEncodingDateTime;
+
+        /// <summary>
+        /// Таймер, запускающий принудительное завершение процеса кодека по истечении максимально допустимого времени кодирования файла.
+        /// </summary>
+        private Timer killCodecProcessTimer;
+
         /// <summary>
         /// Событие, происходящее при записи в стандартный поток вывода кодека.
         /// </summary>
@@ -125,6 +145,25 @@ namespace AviSynthMergeScripter.Scripting {
             process.Start();
             process.BeginOutputReadLine();
             process.BeginErrorReadLine();
+            this.startEncodingDateTime = DateTime.Now;
+            this.killCodecProcessTimer = new Timer(KillCodecProcessTimerCallback, process, this.settings.MaxEncodingTime, TimeSpan.Zero);
+        }
+
+        private void KillCodecProcessTimerCallback(object state) {
+            if (state is Process process) {
+                process.Kill();
+                WriteErrorLogFile();
+            }
+        }
+
+        private void WriteErrorLogFile() {
+            StreamWriter writer = new StreamWriter(string.Format(LogFileNameFormat, this.outputFilePath, ErrorLogFileExtension));
+            writer.WriteLine("The codec process was terminated because the maximum encoding time was exceeded. Maximum encoding time set to {0}", this.settings.MaxEncodingTime);
+            DateTime currentTime = DateTime.Now;
+            writer.WriteLine("Start time of the codec process: {0}", this.startEncodingDateTime);
+            writer.WriteLine("Finish time of the codec process: {0}", currentTime);
+            writer.WriteLine("Actual working time of the codec process: {0}", currentTime - this.startEncodingDateTime);
+            writer.Close();
         }
 
         /// <summary>
@@ -170,6 +209,7 @@ namespace AviSynthMergeScripter.Scripting {
             while (!(this.isCodecStandardOutputClosed && this.isCodecStandardErrorClosed)) {
                 Thread.Sleep(0);
             }
+            this.finishEncodingDateTime = DateTime.Now;
             this.logWriter.Close();
             this.EncodeFileCompleted(sender, e);
         }
