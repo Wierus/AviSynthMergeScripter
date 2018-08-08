@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Drawing;
+using System.IO;
 using System.Windows.Forms;
 
 using AviSynthMergeScripter.Scripting;
@@ -246,6 +247,10 @@ namespace AviSynthMergeScripter {
         private void X264CodecSettingsEncodeFilesButton_Click(object sender, EventArgs e) {
             List<string> checkedPathesList = TreeViewUtils.GetCheckedFiles(this.pathesTreeView);
             if ((checkedPathesList == null) || (checkedPathesList.Count == 0)) {
+                return;
+            }
+            if (!File.Exists(this.x264CodecSettings.CodecPath)) {
+                MessageBox.Show(string.Format("Отсутствует запускаемый файл кодека:\n{0}", this.x264CodecSettings.CodecPath), "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
             this.x264CodecScripts = new List<X264CodecScript>();
