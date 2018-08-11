@@ -209,6 +209,7 @@ namespace AviSynthMergeScripter.Scripting {
             while (!(this.isCodecStandardOutputClosed && this.isCodecStandardErrorClosed)) {
                 Thread.Sleep(0);
             }
+            this.killCodecProcessTimer.Dispose();
             this.finishEncodingDateTime = DateTime.Now;
             this.logWriter.Close();
             this.EncodeFileCompleted(sender, e);
