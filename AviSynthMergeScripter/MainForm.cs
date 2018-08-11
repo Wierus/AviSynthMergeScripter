@@ -275,22 +275,22 @@ namespace AviSynthMergeScripter {
         private void X264CodecScript_CodecOutputDataReceived(object sender, DataReceivedEventArgs e) {
             if (this.InvokeRequired) {
                 this.Invoke(new MethodInvoker(delegate() {
-                    this.statusLabel.Text = e.Data;
+                    this.toolStripStatusLabel.Text = e.Data;
                 }));
             }
             else {
-                this.statusLabel.Text = e.Data;
+                this.toolStripStatusLabel.Text = e.Data;
             }
         }
 
         private void X264CodecScript_CodecErrorDataReceived(object sender, DataReceivedEventArgs e) {
             if (this.InvokeRequired) {
                 this.Invoke(new MethodInvoker(delegate() {
-                    this.statusLabel.Text = e.Data;
+                    this.toolStripStatusLabel.Text = e.Data;
                 }));
             }
             else {
-                this.statusLabel.Text = e.Data;
+                this.toolStripStatusLabel.Text = e.Data;
             }
         }
         
@@ -302,11 +302,11 @@ namespace AviSynthMergeScripter {
             else {
                 if (this.InvokeRequired) {
                     this.Invoke(new MethodInvoker(delegate() {
-                        this.statusLabel.Text = "Completed!";
+                        this.toolStripStatusLabel.Text = "Completed!";
                     }));
                 }
                 else {
-                    this.statusLabel.Text = "Completed!";
+                    this.toolStripStatusLabel.Text = "Completed!";
                 }
             }
         }

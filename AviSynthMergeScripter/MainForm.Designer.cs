@@ -73,12 +73,14 @@
             this.x264CodecSettingsOutputFolderPathTextBox = new System.Windows.Forms.TextBox();
             this.x264CodecSettingsOutputFolderPathBrowseButton = new System.Windows.Forms.Button();
             this.x264CodecSettingsEncodeFilesButton = new System.Windows.Forms.Button();
-            this.statusLabel = new System.Windows.Forms.Label();
             this.folderBrowserDialog = new System.Windows.Forms.FolderBrowserDialog();
+            this.statusStrip = new System.Windows.Forms.StatusStrip();
+            this.toolStripStatusLabel = new System.Windows.Forms.ToolStripStatusLabel();
             this.rootFolderPathGroupBox.SuspendLayout();
             this.pathesTreeGroupBox.SuspendLayout();
             this.aviSynthSettingsGroupBox.SuspendLayout();
             this.x264CodecSettingsGroupBox.SuspendLayout();
+            this.statusStrip.SuspendLayout();
             this.SuspendLayout();
             // 
             // rootFolderPathGroupBox
@@ -122,7 +124,7 @@
             this.pathesTreeGroupBox.Controls.Add(this.pathesTreeView);
             this.pathesTreeGroupBox.Location = new System.Drawing.Point(12, 63);
             this.pathesTreeGroupBox.Name = "pathesTreeGroupBox";
-            this.pathesTreeGroupBox.Size = new System.Drawing.Size(318, 464);
+            this.pathesTreeGroupBox.Size = new System.Drawing.Size(318, 451);
             this.pathesTreeGroupBox.TabIndex = 1;
             this.pathesTreeGroupBox.TabStop = false;
             this.pathesTreeGroupBox.Text = "Дерево подпапок";
@@ -137,7 +139,7 @@
             this.pathesTreeView.Location = new System.Drawing.Point(6, 19);
             this.pathesTreeView.Name = "pathesTreeView";
             this.pathesTreeView.ShowNodeToolTips = true;
-            this.pathesTreeView.Size = new System.Drawing.Size(306, 439);
+            this.pathesTreeView.Size = new System.Drawing.Size(306, 426);
             this.pathesTreeView.TabIndex = 0;
             this.pathesTreeView.AfterCheck += new System.Windows.Forms.TreeViewEventHandler(this.PathesTreeView_AfterCheck);
             // 
@@ -631,27 +633,32 @@
             this.x264CodecSettingsEncodeFilesButton.UseVisualStyleBackColor = true;
             this.x264CodecSettingsEncodeFilesButton.Click += new System.EventHandler(this.X264CodecSettingsEncodeFilesButton_Click);
             // 
-            // statusLabel
+            // statusStrip
             // 
-            this.statusLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.statusLabel.AutoSize = true;
-            this.statusLabel.Location = new System.Drawing.Point(364, 517);
-            this.statusLabel.Name = "statusLabel";
-            this.statusLabel.Size = new System.Drawing.Size(0, 13);
-            this.statusLabel.TabIndex = 6;
+            this.statusStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripStatusLabel});
+            this.statusStrip.Location = new System.Drawing.Point(0, 517);
+            this.statusStrip.Name = "statusStrip";
+            this.statusStrip.Size = new System.Drawing.Size(944, 22);
+            this.statusStrip.TabIndex = 7;
+            // 
+            // toolStripStatusLabel
+            // 
+            this.toolStripStatusLabel.Name = "toolStripStatusLabel";
+            this.toolStripStatusLabel.Size = new System.Drawing.Size(0, 17);
             // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(944, 539);
+            this.Controls.Add(this.statusStrip);
             this.Controls.Add(this.rootFolderPathGroupBox);
             this.Controls.Add(this.pathesTreeGroupBox);
             this.Controls.Add(this.aviSynthSettingsRadioButton);
             this.Controls.Add(this.x264CodecSettingsRadioButton);
             this.Controls.Add(this.aviSynthSettingsGroupBox);
             this.Controls.Add(this.x264CodecSettingsGroupBox);
-            this.Controls.Add(this.statusLabel);
             this.Name = "MainForm";
             this.Text = "AviSynth Merge Scripter";
             this.Load += new System.EventHandler(this.MainForm_Load);
@@ -662,6 +669,8 @@
             this.aviSynthSettingsGroupBox.PerformLayout();
             this.x264CodecSettingsGroupBox.ResumeLayout(false);
             this.x264CodecSettingsGroupBox.PerformLayout();
+            this.statusStrip.ResumeLayout(false);
+            this.statusStrip.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -719,10 +728,9 @@
         private System.Windows.Forms.Button      x264CodecSettingsOutputFolderPathBrowseButton;
         private System.Windows.Forms.Button      x264CodecSettingsEncodeFilesButton;
 
-        private System.Windows.Forms.Label       statusLabel;
-
         private System.Windows.Forms.FolderBrowserDialog folderBrowserDialog;
-
+        private System.Windows.Forms.StatusStrip statusStrip;
+        private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel;
     }
 
 }
