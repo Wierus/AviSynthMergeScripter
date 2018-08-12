@@ -77,6 +77,18 @@ namespace AviSynthMergeScripter {
             this.x264CodecSettingsIOActivityMeasurementPeriodComboBox.SelectedItem = this.settings.GetDefaultListControlItem("X264CodecSettings/IOActivityMeasurementPeriod");
         }
 
+        private void setFormControlsAvailability(bool enabled) {
+            this.rootFolderPathGroupBox.Enabled = enabled;
+            this.pathesTreeGroupBox.Enabled = enabled;
+            this.aviSynthSettingsGroupBox.Enabled = enabled;
+            this.aviSynthSettingsRadioButton.Enabled = enabled;
+            this.x264CodecSettingsGroupBox.Enabled = enabled;
+            this.x264CodecSettingsRadioButton.Enabled = enabled;
+            if (enabled) {
+                this.ProcessRadioButtonsCheckState();
+            }
+        }
+
         #region Processing AviSynth settings
 
         private void AviSynthSettingsShowFilesComboBox_SelectedValueChanged(object sender, EventArgs e) {
@@ -283,11 +295,13 @@ namespace AviSynthMergeScripter {
             if (sender is X264CodecScript script) {
                 if (this.InvokeRequired) {
                     this.Invoke(new MethodInvoker(delegate () {
+                        this.setFormControlsAvailability(false);
                         this.toolStripCurrentFileNameLabel.Text = string.Format("Текущий файл: {0}", script.FileName);
                         this.toolStripStatusLabel.Text = string.Empty;
                     }));
                 }
                 else {
+                    this.setFormControlsAvailability(false);
                     this.toolStripCurrentFileNameLabel.Text = string.Format("Текущий файл: {0}", script.FileName);
                     this.toolStripStatusLabel.Text = string.Empty;
                 }
@@ -324,11 +338,13 @@ namespace AviSynthMergeScripter {
             else {
                 if (this.InvokeRequired) {
                     this.Invoke(new MethodInvoker(delegate() {
+                        this.setFormControlsAvailability(true);
                         this.toolStripCurrentFileNameLabel.Text = string.Empty;
                         this.toolStripStatusLabel.Text = "Все файлы обработаны!";
                     }));
                 }
                 else {
+                    this.setFormControlsAvailability(true);
                     this.toolStripCurrentFileNameLabel.Text = string.Empty;
                     this.toolStripStatusLabel.Text = "Все файлы обработаны!";
                 }
