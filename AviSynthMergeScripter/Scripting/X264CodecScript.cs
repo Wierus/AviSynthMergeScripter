@@ -95,6 +95,17 @@ namespace AviSynthMergeScripter.Scripting {
         /// </summary>
         private Timer killCodecProcessTimer;
 
+        public string FileName {
+            get {
+                return PathUtils.GetLastName(this.inputFilePath);
+            }
+        }
+
+        /// <summary>
+        /// Событие, происходящее при запуске процесса кодирования.
+        /// </summary>
+        public event EventHandler EncodeFileStarted;
+
         /// <summary>
         /// Событие, происходящее при записи в стандартный поток вывода кодека.
         /// </summary>
@@ -119,7 +130,7 @@ namespace AviSynthMergeScripter.Scripting {
         public X264CodecScript(string inputFilePath, string outputFolderPath, X264CodecSettings settings) {
             this.settings = settings;
             this.inputFilePath = inputFilePath;
-            string outputFileName = string.Format(OutputFileNameFormat, PathUtils.GetLastName(inputFilePath), (!string.IsNullOrEmpty(this.settings.CodecOptions)) ? this.settings.CodecOptions : EmptyCodecOptionsString, this.settings.OutputFileExtension);
+            string outputFileName = string.Format(OutputFileNameFormat, this.FileName, (!string.IsNullOrEmpty(this.settings.CodecOptions)) ? this.settings.CodecOptions : EmptyCodecOptionsString, this.settings.OutputFileExtension);
             this.outputFilePath = PathUtils.GetPathWithTrailingSlash(outputFolderPath) + outputFileName;
         }
 
@@ -127,6 +138,7 @@ namespace AviSynthMergeScripter.Scripting {
         /// Запуск кодирования файла с сохранением лога.
         /// </summary>
         public void StartEncodeFile() {
+            this.EncodeFileStarted(this, EventArgs.Empty);
             this.logWriter = new StreamWriter(string.Format(LogFileNameFormat, this.outputFilePath, LogFileExtension));
             string arguments = string.Format(CodecArgumentsFormat, this.settings.CodecOptions, this.outputFilePath, this.inputFilePath);
             this.isCodecStandardOutputClosed = false;

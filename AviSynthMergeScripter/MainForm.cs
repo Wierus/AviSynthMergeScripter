@@ -263,6 +263,7 @@ namespace AviSynthMergeScripter {
             this.currentX264CodecScriptIndex = -1;
             foreach (string path in checkedPathesList) {
                 X264CodecScript x264CodecScript = new X264CodecScript(path, this.x264CodecSettingsOutputFolderPathTextBox.Text, this.x264CodecSettings);
+                x264CodecScript.EncodeFileStarted       += new EventHandler(X264CodecScript_EncodeFileStarted);
                 x264CodecScript.CodecOutputDataReceived += new DataReceivedEventHandler(X264CodecScript_CodecOutputDataReceived);
                 x264CodecScript.CodecErrorDataReceived  += new DataReceivedEventHandler(X264CodecScript_CodecErrorDataReceived);
                 x264CodecScript.EncodeFileCompleted     += new EventHandler(X264CodecScript_EncodeFileCompleted);
@@ -270,6 +271,21 @@ namespace AviSynthMergeScripter {
             }
             this.currentX264CodecScriptIndex = 0;
             this.x264CodecScripts[this.currentX264CodecScriptIndex].StartEncodeFile();
+        }
+
+        private void X264CodecScript_EncodeFileStarted(object sender, EventArgs e) {
+            if (sender is X264CodecScript script) {
+                if (this.InvokeRequired) {
+                    this.Invoke(new MethodInvoker(delegate () {
+                        this.toolStripCurrentFileNameLabel.Text = string.Format("Текущий файл: {0}", script.FileName);
+                        this.toolStripStatusLabel.Text = string.Empty;
+                    }));
+                }
+                else {
+                    this.toolStripCurrentFileNameLabel.Text = string.Format("Текущий файл: {0}", script.FileName);
+                    this.toolStripStatusLabel.Text = string.Empty;
+                }
+            }
         }
 
         private void X264CodecScript_CodecOutputDataReceived(object sender, DataReceivedEventArgs e) {
@@ -302,11 +318,13 @@ namespace AviSynthMergeScripter {
             else {
                 if (this.InvokeRequired) {
                     this.Invoke(new MethodInvoker(delegate() {
-                        this.toolStripStatusLabel.Text = "Completed!";
+                        this.toolStripCurrentFileNameLabel.Text = string.Empty;
+                        this.toolStripStatusLabel.Text = "Все файлы обработаны!";
                     }));
                 }
                 else {
-                    this.toolStripStatusLabel.Text = "Completed!";
+                    this.toolStripCurrentFileNameLabel.Text = string.Empty;
+                    this.toolStripStatusLabel.Text = "Все файлы обработаны!";
                 }
             }
         }

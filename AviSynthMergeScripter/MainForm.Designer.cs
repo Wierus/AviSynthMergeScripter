@@ -76,6 +76,7 @@
             this.folderBrowserDialog = new System.Windows.Forms.FolderBrowserDialog();
             this.statusStrip = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabel = new System.Windows.Forms.ToolStripStatusLabel();
+            this.toolStripCurrentFileNameLabel = new System.Windows.Forms.ToolStripStatusLabel();
             this.rootFolderPathGroupBox.SuspendLayout();
             this.pathesTreeGroupBox.SuspendLayout();
             this.aviSynthSettingsGroupBox.SuspendLayout();
@@ -636,6 +637,7 @@
             // statusStrip
             // 
             this.statusStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripCurrentFileNameLabel,
             this.toolStripStatusLabel});
             this.statusStrip.Location = new System.Drawing.Point(0, 517);
             this.statusStrip.Name = "statusStrip";
@@ -646,6 +648,11 @@
             // 
             this.toolStripStatusLabel.Name = "toolStripStatusLabel";
             this.toolStripStatusLabel.Size = new System.Drawing.Size(0, 17);
+            // 
+            // toolStripCurrentFileNameLabel
+            // 
+            this.toolStripCurrentFileNameLabel.Name = "toolStripCurrentFileNameLabel";
+            this.toolStripCurrentFileNameLabel.Size = new System.Drawing.Size(0, 17);
             // 
             // MainForm
             // 
@@ -730,7 +737,9 @@
 
         private System.Windows.Forms.FolderBrowserDialog folderBrowserDialog;
         private System.Windows.Forms.StatusStrip statusStrip;
+        private System.Windows.Forms.ToolStripStatusLabel toolStripCurrentFileNameLabel;
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel;
+        
     }
 
 }

@@ -21,7 +21,7 @@ namespace AviSynthMergeScripter {
         X264Codec,
 
         /// <summary>
-        /// Не указанный режим работы.
+        /// Режим работы не указан.
         /// </summary>
         Undefined
 
