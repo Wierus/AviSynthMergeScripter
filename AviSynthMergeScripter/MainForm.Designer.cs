@@ -695,7 +695,7 @@
             this.Controls.Add(this.aviSynthSettingsGroupBox);
             this.Controls.Add(this.x264CodecSettingsGroupBox);
             this.Name = "MainForm";
-            this.Text = "AviSynth Merge Scripter v0.5.1";
+            this.Text = "AviSynth Merge Scripter 0.5.2";
             this.Load += new System.EventHandler(this.MainForm_Load);
             this.rootFolderPathGroupBox.ResumeLayout(false);
             this.rootFolderPathGroupBox.PerformLayout();

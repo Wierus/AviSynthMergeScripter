@@ -123,7 +123,12 @@ namespace AviSynthMergeScripter.Scripting {
         /// Счетчик производительности, измеряющий весь ввод/вывод, порождаемый процессом.
         /// </summary>
         private PerformanceCounter processIOActivityPerformanceCounter;
-        
+
+        /// <summary>
+        /// Предыдущее сырое значение счетчика производительности, измеряющего весь ввод/вывод, порождаемый процессом.
+        /// </summary>
+        private float processIOActivityRawValue;
+
         public string FileName {
             get {
                 return PathUtils.GetLastName(this.inputFilePath);
@@ -189,6 +194,7 @@ namespace AviSynthMergeScripter.Scripting {
             this.startEncodingDateTime = DateTime.Now;
             this.killCodecByMaxEncodingTimeTimer = new Timer(KillCodecByMaxEncodingTimeTimerCallback, process, this.settings.MaxEncodingTime, TimeSpan.Zero);
             this.processIOActivityPerformanceCounter = new PerformanceCounter(IOActivityPerformanceCounterCategoryName, IOActivityPerformanceCounterName, process.ProcessName);
+            this.processIOActivityRawValue = 0.0f;
             this.killCodecByNoIOActivityTimer = new Timer(KillCodecByNoIOActivityTimerCallBack, process, this.settings.IOActivityMeasurementPeriod, this.settings.IOActivityMeasurementPeriod);
         }
 
@@ -202,11 +208,13 @@ namespace AviSynthMergeScripter.Scripting {
 
         private void KillCodecByNoIOActivityTimerCallBack(object state) {
             if (state is Process process) {
-                if (processIOActivityPerformanceCounter.NextValue() == 0.0f) {
+                float currentRawValue = processIOActivityPerformanceCounter.RawValue;
+                if (this.processIOActivityRawValue == currentRawValue) {
                     process.Kill();
                     string reason = string.Format("The codec process was terminated because there was no I/O activity within the last time of ({0})", this.settings.IOActivityMeasurementPeriod);
                     WriteErrorLogFile(reason);
                 }
+                this.processIOActivityRawValue = currentRawValue;
             }
         }
 
@@ -268,6 +276,9 @@ namespace AviSynthMergeScripter.Scripting {
             }
             if (this.killCodecByNoIOActivityTimer != null) {
                 this.killCodecByNoIOActivityTimer.Dispose();
+            }
+            if (this.processIOActivityPerformanceCounter != null) {
+                this.processIOActivityPerformanceCounter.Dispose();
             }
             this.finishEncodingDateTime = DateTime.Now;
             this.logWriter.Close();
