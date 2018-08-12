@@ -61,18 +61,20 @@ namespace AviSynthMergeScripter {
 
         private void LoadX264CodecSettings() {
             this.x264CodecSettings = new X264CodecSettings();
-            this.x264CodecSettingsShowFilesComboBox.DataSource             = this.settings.GetListControlItems      ("X264CodecSettings/ShowFiles");
-            this.x264CodecSettingsShowFilesComboBox.SelectedItem           = this.settings.GetDefaultListControlItem("X264CodecSettings/ShowFiles");
-            this.x264CodecSettingsSearchPatternComboBox.DataSource         = this.settings.GetListControlItems      ("X264CodecSettings/SearchPattern");
-            this.x264CodecSettingsSearchPatternComboBox.SelectedItem       = this.settings.GetDefaultListControlItem("X264CodecSettings/SearchPattern");
-            this.x264CodecSettingsCodecPathComboBox.DataSource             = this.settings.GetListControlItems      ("X264CodecSettings/CodecPath");
-            this.x264CodecSettingsCodecPathComboBox.SelectedItem           = this.settings.GetDefaultListControlItem("X264CodecSettings/CodecPath");
-            this.x264CodecSettingsCodecOptionsComboBox.DataSource          = this.settings.GetListControlItems      ("X264CodecSettings/CodecOptions");
-            this.x264CodecSettingsCodecOptionsComboBox.SelectedItem        = this.settings.GetDefaultListControlItem("X264CodecSettings/CodecOptions");
-            this.x264CodecSettingsOutputFileExtensionComboBox.DataSource   = this.settings.GetListControlItems      ("X264CodecSettings/OutputFileExtension");
-            this.x264CodecSettingsOutputFileExtensionComboBox.SelectedItem = this.settings.GetDefaultListControlItem("X264CodecSettings/OutputFileExtension");
-            this.x264CodecSettingsMaxEncodingTimeComboBox.DataSource       = this.settings.GetListControlItems      ("X264CodecSettings/MaxEncodingTime");
-            this.x264CodecSettingsMaxEncodingTimeComboBox.SelectedItem     = this.settings.GetDefaultListControlItem("X264CodecSettings/MaxEncodingTime");
+            this.x264CodecSettingsShowFilesComboBox.DataSource                     = this.settings.GetListControlItems      ("X264CodecSettings/ShowFiles");
+            this.x264CodecSettingsShowFilesComboBox.SelectedItem                   = this.settings.GetDefaultListControlItem("X264CodecSettings/ShowFiles");
+            this.x264CodecSettingsSearchPatternComboBox.DataSource                 = this.settings.GetListControlItems      ("X264CodecSettings/SearchPattern");
+            this.x264CodecSettingsSearchPatternComboBox.SelectedItem               = this.settings.GetDefaultListControlItem("X264CodecSettings/SearchPattern");
+            this.x264CodecSettingsCodecPathComboBox.DataSource                     = this.settings.GetListControlItems      ("X264CodecSettings/CodecPath");
+            this.x264CodecSettingsCodecPathComboBox.SelectedItem                   = this.settings.GetDefaultListControlItem("X264CodecSettings/CodecPath");
+            this.x264CodecSettingsCodecOptionsComboBox.DataSource                  = this.settings.GetListControlItems      ("X264CodecSettings/CodecOptions");
+            this.x264CodecSettingsCodecOptionsComboBox.SelectedItem                = this.settings.GetDefaultListControlItem("X264CodecSettings/CodecOptions");
+            this.x264CodecSettingsOutputFileExtensionComboBox.DataSource           = this.settings.GetListControlItems      ("X264CodecSettings/OutputFileExtension");
+            this.x264CodecSettingsOutputFileExtensionComboBox.SelectedItem         = this.settings.GetDefaultListControlItem("X264CodecSettings/OutputFileExtension");
+            this.x264CodecSettingsMaxEncodingTimeComboBox.DataSource               = this.settings.GetListControlItems      ("X264CodecSettings/MaxEncodingTime");
+            this.x264CodecSettingsMaxEncodingTimeComboBox.SelectedItem             = this.settings.GetDefaultListControlItem("X264CodecSettings/MaxEncodingTime");
+            this.x264CodecSettingsIOActivityMeasurementPeriodComboBox.DataSource   = this.settings.GetListControlItems      ("X264CodecSettings/IOActivityMeasurementPeriod");
+            this.x264CodecSettingsIOActivityMeasurementPeriodComboBox.SelectedItem = this.settings.GetDefaultListControlItem("X264CodecSettings/IOActivityMeasurementPeriod");
         }
 
         #region Processing AviSynth settings
@@ -135,6 +137,10 @@ namespace AviSynthMergeScripter {
 
         private void X264CodecSettingsMaxEncodingTimeComboBox_SelectedValueChanged(object sender, EventArgs e) {
             this.x264CodecSettings.MaxEncodingTime = TimeSpan.Parse((string)(this.x264CodecSettingsMaxEncodingTimeComboBox.SelectedValue));
+        }
+
+        private void X264CodecSettingsIOActivityMeasurementPeriodComboBox_SelectedValueChanged(object sender, EventArgs e) {
+            this.x264CodecSettings.IOActivityMeasurementPeriod = TimeSpan.Parse((string)(this.x264CodecSettingsIOActivityMeasurementPeriodComboBox.SelectedValue));
         }
 
         #endregion

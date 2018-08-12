@@ -58,5 +58,6 @@
     <OutputFileExtension value="flv" displayValue=".flv (Flash Video)" />
     <OutputFileExtension value="mp4" displayValue=".mp4 (MP4 if compiled with GPAC support)" default="true" />
     <MaxEncodingTime value="03:00:00" displayValue="03:00:00" default="true" />
+    <IOActivityMeasurementPeriod value="00:01:00" displayValue="00:01:00" default="true" />
   </X264CodecSettings>
 </AviSynthMergeScripterSettings>

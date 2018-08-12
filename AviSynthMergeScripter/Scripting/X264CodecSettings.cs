@@ -6,7 +6,7 @@ namespace AviSynthMergeScripter.Scripting {
     /// Настройки для кодека x264.
     /// </summary>
     public class X264CodecSettings {
-        
+
         /// <summary>
         /// Флаг, указывающий, требуется ли отображать обрабатываемые файлы при построении дерева (на форме).
         /// </summary>
@@ -36,6 +36,11 @@ namespace AviSynthMergeScripter.Scripting {
         /// Максимально допустимое время кодирования файла, по истечении которого процесс кодека будет принудительно завершен.
         /// </summary>
         private TimeSpan maxEncodingTime;
+
+        /// <summary>
+        /// Интервал между измерениями всего ввода/вывода, порождаемого процессом.
+        /// </summary>
+        private TimeSpan ioActivityMeasurementPeriod;
 
         /// <summary>
         /// Флаг, указывающий, требуется ли отображать обрабатываемые файлы при построении дерева (на форме).
@@ -106,6 +111,18 @@ namespace AviSynthMergeScripter.Scripting {
             }
             set {
                 this.maxEncodingTime = value;
+            }
+        }
+
+        /// <summary>
+        /// Интервал между измерениями всего ввода/вывода, порождаемого процессом.
+        /// </summary>
+        public TimeSpan IOActivityMeasurementPeriod {
+            get {
+                return this.ioActivityMeasurementPeriod;
+            }
+            set {
+                this.ioActivityMeasurementPeriod = value;
             }
         }
 

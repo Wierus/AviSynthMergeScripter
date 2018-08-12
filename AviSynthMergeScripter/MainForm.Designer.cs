@@ -58,6 +58,8 @@
             this.x264CodecSettingsGroupBox = new System.Windows.Forms.GroupBox();
             this.x264CodecSettingsMaxEncodingTimeLabel = new System.Windows.Forms.Label();
             this.x264CodecSettingsMaxEncodingTimeComboBox = new System.Windows.Forms.ComboBox();
+            this.x264CodecSettingsIOActivityMeasurementPeriodLabel = new System.Windows.Forms.Label();
+            this.x264CodecSettingsIOActivityMeasurementPeriodComboBox = new System.Windows.Forms.ComboBox();
             this.x264CodecSettingsShowFilesLabel = new System.Windows.Forms.Label();
             this.x264CodecSettingsShowFilesComboBox = new System.Windows.Forms.ComboBox();
             this.x264CodecSettingsSearchPatternLabel = new System.Windows.Forms.Label();
@@ -75,8 +77,8 @@
             this.x264CodecSettingsEncodeFilesButton = new System.Windows.Forms.Button();
             this.folderBrowserDialog = new System.Windows.Forms.FolderBrowserDialog();
             this.statusStrip = new System.Windows.Forms.StatusStrip();
-            this.toolStripStatusLabel = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolStripCurrentFileNameLabel = new System.Windows.Forms.ToolStripStatusLabel();
+            this.toolStripStatusLabel = new System.Windows.Forms.ToolStripStatusLabel();
             this.rootFolderPathGroupBox.SuspendLayout();
             this.pathesTreeGroupBox.SuspendLayout();
             this.aviSynthSettingsGroupBox.SuspendLayout();
@@ -125,7 +127,7 @@
             this.pathesTreeGroupBox.Controls.Add(this.pathesTreeView);
             this.pathesTreeGroupBox.Location = new System.Drawing.Point(12, 63);
             this.pathesTreeGroupBox.Name = "pathesTreeGroupBox";
-            this.pathesTreeGroupBox.Size = new System.Drawing.Size(318, 451);
+            this.pathesTreeGroupBox.Size = new System.Drawing.Size(318, 478);
             this.pathesTreeGroupBox.TabIndex = 1;
             this.pathesTreeGroupBox.TabStop = false;
             this.pathesTreeGroupBox.Text = "Дерево подпапок";
@@ -140,7 +142,7 @@
             this.pathesTreeView.Location = new System.Drawing.Point(6, 19);
             this.pathesTreeView.Name = "pathesTreeView";
             this.pathesTreeView.ShowNodeToolTips = true;
-            this.pathesTreeView.Size = new System.Drawing.Size(306, 426);
+            this.pathesTreeView.Size = new System.Drawing.Size(306, 453);
             this.pathesTreeView.TabIndex = 0;
             this.pathesTreeView.AfterCheck += new System.Windows.Forms.TreeViewEventHandler(this.PathesTreeView_AfterCheck);
             // 
@@ -162,7 +164,7 @@
             this.x264CodecSettingsRadioButton.CheckAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.x264CodecSettingsRadioButton.Location = new System.Drawing.Point(336, 305);
             this.x264CodecSettingsRadioButton.Name = "x264CodecSettingsRadioButton";
-            this.x264CodecSettingsRadioButton.Size = new System.Drawing.Size(25, 209);
+            this.x264CodecSettingsRadioButton.Size = new System.Drawing.Size(25, 236);
             this.x264CodecSettingsRadioButton.TabIndex = 3;
             this.x264CodecSettingsRadioButton.TabStop = true;
             this.x264CodecSettingsRadioButton.UseVisualStyleBackColor = true;
@@ -421,6 +423,8 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.x264CodecSettingsGroupBox.Controls.Add(this.x264CodecSettingsMaxEncodingTimeLabel);
             this.x264CodecSettingsGroupBox.Controls.Add(this.x264CodecSettingsMaxEncodingTimeComboBox);
+            this.x264CodecSettingsGroupBox.Controls.Add(this.x264CodecSettingsIOActivityMeasurementPeriodLabel);
+            this.x264CodecSettingsGroupBox.Controls.Add(this.x264CodecSettingsIOActivityMeasurementPeriodComboBox);
             this.x264CodecSettingsGroupBox.Controls.Add(this.x264CodecSettingsShowFilesLabel);
             this.x264CodecSettingsGroupBox.Controls.Add(this.x264CodecSettingsShowFilesComboBox);
             this.x264CodecSettingsGroupBox.Controls.Add(this.x264CodecSettingsSearchPatternLabel);
@@ -438,7 +442,7 @@
             this.x264CodecSettingsGroupBox.Controls.Add(this.x264CodecSettingsEncodeFilesButton);
             this.x264CodecSettingsGroupBox.Location = new System.Drawing.Point(367, 305);
             this.x264CodecSettingsGroupBox.Name = "x264CodecSettingsGroupBox";
-            this.x264CodecSettingsGroupBox.Size = new System.Drawing.Size(565, 209);
+            this.x264CodecSettingsGroupBox.Size = new System.Drawing.Size(565, 236);
             this.x264CodecSettingsGroupBox.TabIndex = 5;
             this.x264CodecSettingsGroupBox.TabStop = false;
             this.x264CodecSettingsGroupBox.Text = "Настройки для кодека X264";
@@ -466,6 +470,30 @@
             this.x264CodecSettingsMaxEncodingTimeComboBox.TabIndex = 12;
             this.x264CodecSettingsMaxEncodingTimeComboBox.ValueMember = "ValueMember";
             this.x264CodecSettingsMaxEncodingTimeComboBox.SelectedValueChanged += new System.EventHandler(this.X264CodecSettingsMaxEncodingTimeComboBox_SelectedValueChanged);
+            // 
+            // x264CodecSettingsIOActivityMeasurementPeriodLabel
+            // 
+            this.x264CodecSettingsIOActivityMeasurementPeriodLabel.AutoSize = true;
+            this.x264CodecSettingsIOActivityMeasurementPeriodLabel.Location = new System.Drawing.Point(36, 157);
+            this.x264CodecSettingsIOActivityMeasurementPeriodLabel.Name = "x264CodecSettingsIOActivityMeasurementPeriodLabel";
+            this.x264CodecSettingsIOActivityMeasurementPeriodLabel.Size = new System.Drawing.Size(126, 13);
+            this.x264CodecSettingsIOActivityMeasurementPeriodLabel.TabIndex = 13;
+            this.x264CodecSettingsIOActivityMeasurementPeriodLabel.Text = "Период измерений I/O:";
+            // 
+            // x264CodecSettingsIOActivityMeasurementPeriodComboBox
+            // 
+            this.x264CodecSettingsIOActivityMeasurementPeriodComboBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.x264CodecSettingsIOActivityMeasurementPeriodComboBox.DisplayMember = "DisplayMember";
+            this.x264CodecSettingsIOActivityMeasurementPeriodComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.x264CodecSettingsIOActivityMeasurementPeriodComboBox.IntegralHeight = false;
+            this.x264CodecSettingsIOActivityMeasurementPeriodComboBox.ItemHeight = 13;
+            this.x264CodecSettingsIOActivityMeasurementPeriodComboBox.Location = new System.Drawing.Point(168, 154);
+            this.x264CodecSettingsIOActivityMeasurementPeriodComboBox.Name = "x264CodecSettingsIOActivityMeasurementPeriodComboBox";
+            this.x264CodecSettingsIOActivityMeasurementPeriodComboBox.Size = new System.Drawing.Size(360, 21);
+            this.x264CodecSettingsIOActivityMeasurementPeriodComboBox.TabIndex = 14;
+            this.x264CodecSettingsIOActivityMeasurementPeriodComboBox.ValueMember = "ValueMember";
+            this.x264CodecSettingsIOActivityMeasurementPeriodComboBox.SelectedValueChanged += new System.EventHandler(this.X264CodecSettingsIOActivityMeasurementPeriodComboBox_SelectedValueChanged);
             // 
             // x264CodecSettingsShowFilesLabel
             // 
@@ -596,28 +624,28 @@
             // x264CodecSettingsOutputFolderPathLabel
             // 
             this.x264CodecSettingsOutputFolderPathLabel.AutoSize = true;
-            this.x264CodecSettingsOutputFolderPathLabel.Location = new System.Drawing.Point(69, 157);
+            this.x264CodecSettingsOutputFolderPathLabel.Location = new System.Drawing.Point(69, 184);
             this.x264CodecSettingsOutputFolderPathLabel.Name = "x264CodecSettingsOutputFolderPathLabel";
             this.x264CodecSettingsOutputFolderPathLabel.Size = new System.Drawing.Size(93, 13);
-            this.x264CodecSettingsOutputFolderPathLabel.TabIndex = 13;
+            this.x264CodecSettingsOutputFolderPathLabel.TabIndex = 15;
             this.x264CodecSettingsOutputFolderPathLabel.Text = "Выходная папка:";
             // 
             // x264CodecSettingsOutputFolderPathTextBox
             // 
             this.x264CodecSettingsOutputFolderPathTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.x264CodecSettingsOutputFolderPathTextBox.Location = new System.Drawing.Point(168, 154);
+            this.x264CodecSettingsOutputFolderPathTextBox.Location = new System.Drawing.Point(168, 181);
             this.x264CodecSettingsOutputFolderPathTextBox.Name = "x264CodecSettingsOutputFolderPathTextBox";
             this.x264CodecSettingsOutputFolderPathTextBox.Size = new System.Drawing.Size(360, 20);
-            this.x264CodecSettingsOutputFolderPathTextBox.TabIndex = 14;
+            this.x264CodecSettingsOutputFolderPathTextBox.TabIndex = 16;
             // 
             // x264CodecSettingsOutputFolderPathBrowseButton
             // 
             this.x264CodecSettingsOutputFolderPathBrowseButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.x264CodecSettingsOutputFolderPathBrowseButton.Location = new System.Drawing.Point(534, 154);
+            this.x264CodecSettingsOutputFolderPathBrowseButton.Location = new System.Drawing.Point(534, 181);
             this.x264CodecSettingsOutputFolderPathBrowseButton.Name = "x264CodecSettingsOutputFolderPathBrowseButton";
             this.x264CodecSettingsOutputFolderPathBrowseButton.Size = new System.Drawing.Size(25, 20);
-            this.x264CodecSettingsOutputFolderPathBrowseButton.TabIndex = 15;
+            this.x264CodecSettingsOutputFolderPathBrowseButton.TabIndex = 17;
             this.x264CodecSettingsOutputFolderPathBrowseButton.Text = "...";
             this.x264CodecSettingsOutputFolderPathBrowseButton.UseVisualStyleBackColor = true;
             this.x264CodecSettingsOutputFolderPathBrowseButton.Click += new System.EventHandler(this.X264CodecSettingsOutputFolderPathBrowseButton_Click);
@@ -626,10 +654,10 @@
             // 
             this.x264CodecSettingsEncodeFilesButton.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.x264CodecSettingsEncodeFilesButton.Location = new System.Drawing.Point(168, 180);
+            this.x264CodecSettingsEncodeFilesButton.Location = new System.Drawing.Point(168, 207);
             this.x264CodecSettingsEncodeFilesButton.Name = "x264CodecSettingsEncodeFilesButton";
             this.x264CodecSettingsEncodeFilesButton.Size = new System.Drawing.Size(361, 23);
-            this.x264CodecSettingsEncodeFilesButton.TabIndex = 16;
+            this.x264CodecSettingsEncodeFilesButton.TabIndex = 18;
             this.x264CodecSettingsEncodeFilesButton.Text = "Перекодировать файлы";
             this.x264CodecSettingsEncodeFilesButton.UseVisualStyleBackColor = true;
             this.x264CodecSettingsEncodeFilesButton.Click += new System.EventHandler(this.X264CodecSettingsEncodeFilesButton_Click);
@@ -639,26 +667,26 @@
             this.statusStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripCurrentFileNameLabel,
             this.toolStripStatusLabel});
-            this.statusStrip.Location = new System.Drawing.Point(0, 517);
+            this.statusStrip.Location = new System.Drawing.Point(0, 544);
             this.statusStrip.Name = "statusStrip";
             this.statusStrip.Size = new System.Drawing.Size(944, 22);
             this.statusStrip.TabIndex = 7;
-            // 
-            // toolStripStatusLabel
-            // 
-            this.toolStripStatusLabel.Name = "toolStripStatusLabel";
-            this.toolStripStatusLabel.Size = new System.Drawing.Size(0, 17);
             // 
             // toolStripCurrentFileNameLabel
             // 
             this.toolStripCurrentFileNameLabel.Name = "toolStripCurrentFileNameLabel";
             this.toolStripCurrentFileNameLabel.Size = new System.Drawing.Size(0, 17);
             // 
+            // toolStripStatusLabel
+            // 
+            this.toolStripStatusLabel.Name = "toolStripStatusLabel";
+            this.toolStripStatusLabel.Size = new System.Drawing.Size(0, 17);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(944, 539);
+            this.ClientSize = new System.Drawing.Size(944, 566);
             this.Controls.Add(this.statusStrip);
             this.Controls.Add(this.rootFolderPathGroupBox);
             this.Controls.Add(this.pathesTreeGroupBox);
@@ -730,6 +758,8 @@
         private System.Windows.Forms.ComboBox    x264CodecSettingsOutputFileExtensionComboBox;
         private System.Windows.Forms.Label       x264CodecSettingsMaxEncodingTimeLabel;
         private System.Windows.Forms.ComboBox    x264CodecSettingsMaxEncodingTimeComboBox;
+        private System.Windows.Forms.Label       x264CodecSettingsIOActivityMeasurementPeriodLabel;
+        private System.Windows.Forms.ComboBox    x264CodecSettingsIOActivityMeasurementPeriodComboBox;
         private System.Windows.Forms.Label       x264CodecSettingsOutputFolderPathLabel;
         private System.Windows.Forms.TextBox     x264CodecSettingsOutputFolderPathTextBox;
         private System.Windows.Forms.Button      x264CodecSettingsOutputFolderPathBrowseButton;
@@ -739,7 +769,7 @@
         private System.Windows.Forms.StatusStrip statusStrip;
         private System.Windows.Forms.ToolStripStatusLabel toolStripCurrentFileNameLabel;
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel;
-        
+
     }
 
 }

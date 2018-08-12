@@ -43,12 +43,31 @@ namespace AviSynthMergeScripter.Scripting {
         private const string LogFileNameFormat = "{0}.{1}";
 
         /// <summary>
+        /// Формат имени лог-файла для записи ошибок.
+        /// {0} - Путь к выходному файлу.
+        /// {1} - Текущие дата и время.
+        /// {2} - Расширение лог-файла для записи ошибок.
+        /// </summary>
+        private const string ErrorLogFileNameFormat = "{0}.{1}.{2}";
+
+        /// <summary>
         /// Формат аргументов командной строки кодека.
         /// {0} - Параметры командной строки кодека.
         /// {1} - Путь к выходному файлу.
         /// {2} - Путь к кодируемому файлу.
         /// </summary>
         private const string CodecArgumentsFormat = "{0} -o \"{1}\" \"{2}\"";
+
+        /// <summary>
+        /// Имя категории счетчика производительности для измерения всего ввода/вывода, порождаемого процессом.
+        /// </summary>
+        private const string IOActivityPerformanceCounterCategoryName = "Process";
+
+        /// <summary>
+        /// Имя счетчика производительности для измерения всего ввода/вывода, порождаемого процессом.
+        /// Список всех счетчиков и категорий перечислен в ветке реестра HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Perflib.
+        /// </summary>
+        private const string IOActivityPerformanceCounterName = "IO Data Bytes/sec";
 
         /// <summary>
         /// Путь к кодируемому файлу.
@@ -81,20 +100,30 @@ namespace AviSynthMergeScripter.Scripting {
         private bool isCodecStandardErrorClosed;
 
         /// <summary>
-        /// Время начала кодирования.
+        /// Время начала кодирования файла.
         /// </summary>
         private DateTime startEncodingDateTime;
 
         /// <summary>
-        /// Время завершения кодирования.
+        /// Время завершения кодирования файла.
         /// </summary>
         private DateTime finishEncodingDateTime;
 
         /// <summary>
         /// Таймер, запускающий принудительное завершение процеса кодека по истечении максимально допустимого времени кодирования файла.
         /// </summary>
-        private Timer killCodecProcessTimer;
+        private Timer killCodecByMaxEncodingTimeTimer;
 
+        /// <summary>
+        /// Таймер, запускающий принудительное завершение процеса кодека при отсутствии активности ввода-вывода.
+        /// </summary>
+        private Timer killCodecByNoIOActivityTimer;
+
+        /// <summary>
+        /// Счетчик производительности, измеряющий весь ввод/вывод, порождаемый процессом.
+        /// </summary>
+        private PerformanceCounter processIOActivityPerformanceCounter;
+        
         public string FileName {
             get {
                 return PathUtils.GetLastName(this.inputFilePath);
@@ -158,20 +187,33 @@ namespace AviSynthMergeScripter.Scripting {
             process.BeginOutputReadLine();
             process.BeginErrorReadLine();
             this.startEncodingDateTime = DateTime.Now;
-            this.killCodecProcessTimer = new Timer(KillCodecProcessTimerCallback, process, this.settings.MaxEncodingTime, TimeSpan.Zero);
+            this.killCodecByMaxEncodingTimeTimer = new Timer(KillCodecByMaxEncodingTimeTimerCallback, process, this.settings.MaxEncodingTime, TimeSpan.Zero);
+            this.processIOActivityPerformanceCounter = new PerformanceCounter(IOActivityPerformanceCounterCategoryName, IOActivityPerformanceCounterName, process.ProcessName);
+            this.killCodecByNoIOActivityTimer = new Timer(KillCodecByNoIOActivityTimerCallBack, process, this.settings.IOActivityMeasurementPeriod, this.settings.IOActivityMeasurementPeriod);
         }
 
-        private void KillCodecProcessTimerCallback(object state) {
+        private void KillCodecByMaxEncodingTimeTimerCallback(object state) {
             if (state is Process process) {
                 process.Kill();
-                WriteErrorLogFile();
+                string reason = string.Format("The codec process was terminated because the maximum encoding time of ({0}) was exceeded", this.settings.MaxEncodingTime);
+                WriteErrorLogFile(reason);
             }
         }
 
-        private void WriteErrorLogFile() {
-            StreamWriter writer = new StreamWriter(string.Format(LogFileNameFormat, this.outputFilePath, ErrorLogFileExtension));
-            writer.WriteLine("The codec process was terminated because the maximum encoding time was exceeded. Maximum encoding time set to {0}", this.settings.MaxEncodingTime);
+        private void KillCodecByNoIOActivityTimerCallBack(object state) {
+            if (state is Process process) {
+                if (processIOActivityPerformanceCounter.NextValue() == 0.0f) {
+                    process.Kill();
+                    string reason = string.Format("The codec process was terminated because there was no I/O activity within the last time of ({0})", this.settings.IOActivityMeasurementPeriod);
+                    WriteErrorLogFile(reason);
+                }
+            }
+        }
+
+        private void WriteErrorLogFile(string reason) {
             DateTime currentTime = DateTime.Now;
+            StreamWriter writer = new StreamWriter(string.Format(ErrorLogFileNameFormat, this.outputFilePath, currentTime.ToString("yyyy-MM-dd HH-mm-ss-fff"), ErrorLogFileExtension));
+            writer.WriteLine(reason);
             writer.WriteLine("Start time of the codec process: {0}", this.startEncodingDateTime);
             writer.WriteLine("Finish time of the codec process: {0}", currentTime);
             writer.WriteLine("Actual working time of the codec process: {0}", currentTime - this.startEncodingDateTime);
@@ -221,7 +263,8 @@ namespace AviSynthMergeScripter.Scripting {
             while (!(this.isCodecStandardOutputClosed && this.isCodecStandardErrorClosed)) {
                 Thread.Sleep(0);
             }
-            this.killCodecProcessTimer.Dispose();
+            this.killCodecByMaxEncodingTimeTimer.Dispose();
+            this.killCodecByNoIOActivityTimer.Dispose();
             this.finishEncodingDateTime = DateTime.Now;
             this.logWriter.Close();
             this.EncodeFileCompleted(sender, e);
